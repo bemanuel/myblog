@@ -52,8 +52,8 @@ No site do próprio Graylog ele disponibiliza várias formas:
 
 Tem pra todos os gostos, mas aqui irei citar apenas os que executei
 
-** Nesse ponto a versão que está disponivel é a 1.3 porém a 2.0 já está em versão Alpha
-Vale destacar que o graylog é dividido em 2 módulos principais:
+
+O graylog é dividido em 2 módulos principais:
 - Graylog-Server
   Que tem a parte de recebimento dos logs, as bases de dados, todo o core principal
 - Gralog-Web
@@ -61,21 +61,35 @@ Vale destacar que o graylog é dividido em 2 módulos principais:
 
 Desse modo fica possível separar ou dividir a carga entre os servidores, pode não parecer mas o processo de tratar e arquivar os logs consome bastante recurso.
 
-Na versão 2.0 não terá mais essa divisão, onde ficará tudo com um módulo só
+** Atualmente a versão que está disponivel é a 1.3 porém a 2.0 já está em versão Alpha. 
 
-### Ubuntu 
+** Na versão 2.0 não terá mais essa divisão, onde ficará tudo com um módulo só
+
+### Ubuntu 14.04
+```
 $ wget https://packages.graylog2.org/repo/packages/graylog-1.3-repository-ubuntu14.04_latest.deb
 $ sudo dpkg -i graylog-1.3-repository-ubuntu14.04_latest.deb
-$ sudo apt-get install apt-transport-https
 $ sudo apt-get update
-$ sudo apt-get install graylog-server graylog-web
-### Debian
+$ sudo apt-get install apt-transport-https graylog-server graylog-web
+```
 
+### Debian 7
+```
+$ wget https://packages.graylog2.org/repo/packages/graylog-1.3-repository-debian7_latest.deb
+$ sudo dpkg -i graylog-1.3-repository-debian7_latest.deb
+$ sudo apt-get update
+$ sudo apt-get install apt-transport-https graylog-server graylog-web
+```
 
 ### Docker
+```
+$ docker pull graylog2/allinone
+$ docker run -t -p 9000:9000 -p 12201:12201 -p 12201:12201/udp -p 514:514 -p 514:514/udp \ 
+ -e GRAYLOG_TIMEZONE=America/Fortaleza graylog2/allinone
+```
 
 
-
+```
 ## this is a comment
 $ echo this is a command
 this is a command
@@ -89,4 +103,4 @@ title = "creating a new theme"
 
 bah and humbug
 :wq
-
+```
