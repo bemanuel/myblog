@@ -1,0 +1,23 @@
+<ul class="stats">
+    {{ $categoryCount := (len .Params.categories) }}
+
+    {{ if ge $categoryCount 1 }}
+        {{ range (where .Site.Menus.main "Name" "Categorias") }}
+            <li>
+                {{ with .Identifier }}
+                    <i class="{{ . }}">&nbsp;</i>
+                {{ end }}
+        {{ end }}
+
+                {{ if gt $categoryCount 1 }}
+                    Categorias
+                {{ else }}
+                    Categoria
+                {{ end }}
+            </li>
+    {{ end }}
+
+    {{ range .Params.categories }}
+        <li><a href="/categories/{{ . | urlize }}">{{ . }}</a></li>
+    {{ end }}
+</ul>
