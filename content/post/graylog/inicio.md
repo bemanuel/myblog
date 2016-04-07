@@ -87,20 +87,3 @@ $ docker pull graylog2/allinone
 $ docker run -t -p 9000:9000 -p 12201:12201 -p 12201:12201/udp -p 514:514 -p 514:514/udp \ 
  -e GRAYLOG_TIMEZONE=America/Fortaleza graylog2/allinone
 ```
-
-
-```
-## this is a comment
-$ echo this is a command
-this is a command
-
-## edit the file
-$ vi foo.md
-+++
-date = "2014-09-28"
-title = "creating a new theme"
-+++
-
-bah and humbug
-:wq
-```
