@@ -121,7 +121,9 @@ Exceto pelo docker que já vem com uma imagem pré-configurada, no Ubuntu/Debian
 $ sudo vi /etc/elasticsearch/elasticsearch.yml
 #Alterar os parametros, deixando do seguinte modo
 cluster.name: graylog2
-network.host: 127.0.0.1
+network.bind_host: 127.0.0.1
+#Esse último tem de ser incluso
+script.disable_dynamic: true
 ```
 
 # Configurando o GrayLog Server
@@ -192,4 +194,9 @@ $ curl -XGET 'http://localhost:9200/_cluster/health?pretty=true'
 $ sudo service graylog-server start
 $ sudo service graylog-web start
 ```
+
+{{< figure src="/img/2016/04/capt01.png" title="System > Overview" >}}
+
+
+{{< year >}}
 
