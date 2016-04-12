@@ -163,6 +163,7 @@ elasticsearch_discovery_zen_ping_unicast_hosts= 127.0.0.1:9300
 ```
 $ sudo vi /etc/graylog/web/web.conf
 # Parâmetros
+```
 graylog2-server.uris="http://127.0.0.1:12900/"
 application.secret="< mesmo valor de password_secret setado em server.conf >"
 timezone="America/Fortaleza"
