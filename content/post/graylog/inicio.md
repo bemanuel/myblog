@@ -3,10 +3,10 @@ Categories = [
 	"Sysadmin", 
 	"Graylog"
 ]
-description = "Usando Graylog como centralizador de logs"
-tags = ["graylog2", "graylog","centralizador","logs"]
+description = "Instalando Graylog - Centralizador de logs"
+tags = ["graylog2", "graylog","centralizador","logs","instalando"]
 date = "2016-04-03"
-publishDate = "2016-04-05"
+publishDate = "2016-04-12"
 menu = "main"
 title = "graylog - centralizador de logs"
 featured = "graylog01.png"
@@ -194,9 +194,6 @@ $ curl -XGET 'http://localhost:9200/_cluster/health?pretty=true'
 $ sudo service graylog-server start
 $ sudo service graylog-web start
 ```
-
+Acesse o endereço http://ip-do-servidor:9000/
 {{< figure src="/img/2016/04/capt01.png" title="System > Overview" >}}
-
-
-{{< year >}}
 
