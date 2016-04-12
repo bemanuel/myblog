@@ -75,17 +75,20 @@ Pré-requisito ter o Java 8 instalado.
 
 # Prepara para instalar o elasticsearch
 $ sudo wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-$ echo "deb http://packages.elastic.co/elasticsearch/1.7/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch.list
+$ echo "deb http://packages.elastic.co/elasticsearch/1.7/debian stable main" \ 
+ | sudo tee -a /etc/apt/sources.list.d/elasticsearch.list
 
 # Ajusta para instalacao do MongoDB
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-$ echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+$ echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" \
+ | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 
 $ wget https://packages.graylog2.org/repo/packages/graylog-1.3-repository-ubuntu14.04_latest.deb
 $ sudo dpkg -i graylog-1.3-repository-ubuntu14.04_latest.deb
 
 $ sudo apt-get update
-$ sudo apt-get install apt-transport-https graylog-server graylog-web pwgen elasticsearch mongodb-org
+$ sudo apt-get install apt-transport-https graylog-server \ 
+ graylog-web pwgen elasticsearch mongodb-org
 
 ```
 
@@ -94,16 +97,19 @@ $ sudo apt-get install apt-transport-https graylog-server graylog-web pwgen elas
 
 # Prepara para instalar o elasticsearch
 $ sudo wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-$ echo "deb http://packages.elastic.co/elasticsearch/1.7/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch.list
+$ echo "deb http://packages.elastic.co/elasticsearch/1.7/debian stable main" \ 
+ | sudo tee -a /etc/apt/sources.list.d/elasticsearch.list
 
 # Ajusta para instalacao do MongoDB
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-$ echo "deb http://repo.mongodb.org/apt/debian "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+$ echo "deb http://repo.mongodb.org/apt/debian "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" \ 
+ | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 
 $ wget https://packages.graylog2.org/repo/packages/graylog-1.3-repository-debian7_latest.deb
 $ sudo dpkg -i graylog-1.3-repository-debian7_latest.deb
 $ sudo apt-get update
-$ sudo apt-get install apt-transport-https graylog-server graylog-web pwgen elasticsearch mongodb-org
+$ sudo apt-get install apt-transport-https graylog-server \ 
+ graylog-web pwgen elasticsearch mongodb-org
 
 ```
 
@@ -133,7 +139,8 @@ Em /etc/graylog/server/server.conf, será necessário setar as senhas, para isso
 #Resultado para parâmetro 'password_secret'
 $ pwgen -N 1 -s 96
 
-#Resultado para parâmetro 'root_password_sha2' senha sha, essa senha será utilizada para o login na interface web, será a senha do usuário admin
+#Resultado para parâmetro 'root_password_sha2' senha sha, essa senha 
+#  será utilizada para o login na interface web, será a senha do usuário admin
 $ echo -n <sua_senha> | shasum -a 256
 
 $ sudo vi /etc/graylog/server/server.conf
@@ -156,6 +163,7 @@ elasticsearch_discovery_zen_ping_unicast_hosts= 127.0.0.1:9300
 ```
 $ sudo vi /etc/graylog/web/web.conf
 # Parâmetros
+```
 graylog2-server.uris="http://127.0.0.1:12900/"
 application.secret="< mesmo valor de password_secret setado em server.conf >"
 timezone="America/Fortaleza"
