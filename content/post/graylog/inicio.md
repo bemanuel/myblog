@@ -139,7 +139,8 @@ Em /etc/graylog/server/server.conf, será necessário setar as senhas, para isso
 #Resultado para parâmetro 'password_secret'
 $ pwgen -N 1 -s 96
 
-#Resultado para parâmetro 'root_password_sha2' senha sha, essa senha será utilizada para o login na interface web, será a senha do usuário admin
+#Resultado para parâmetro 'root_password_sha2' senha sha, essa senha 
+#  será utilizada para o login na interface web, será a senha do usuário admin
 $ echo -n <sua_senha> | shasum -a 256
 
 $ sudo vi /etc/graylog/server/server.conf
