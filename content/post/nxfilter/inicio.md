@@ -18,7 +18,7 @@ type = "post"
 
 #### Apresentação
 
-O NXFilter é uma ferramenta que começou com a ideia de atuar como filtro DNS e agora provê também a possibilidade de filtro de conteúdo web.
+O [NXFilter](http://www.nxfilter.org/) é uma ferramenta que começou com a ideia de atuar como filtro DNS e agora provê também a possibilidade de filtro de conteúdo web.
 
 Dentre as vantagens disponibilizadas se tem:
 
