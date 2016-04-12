@@ -5,9 +5,9 @@ Categories = [
 	"DNS"
 ]
 description = "Sobre o que é a ferramenta e como instalar"
-tags = ["nxfilter", "dns","filtro","instalando"]
+tags = ["nxfilter", "dns","filtro","instalando","raspbian", "debian", "pfsense" ]
 date = "2016-04-12"
-publishdate = "2016-04-13 15:00:00"
+publishdate = "2016-04-13"
 menu = "main"
 title = "NXFilter - O Filtro DNS"
 featured = "nxfilter01.png"
@@ -42,3 +42,9 @@ A instalação do NxFilter é bem simplificada, o site disponibiliza pacotes deb
 
 Como pré-requisito só é necessário ter o java instalado na máquina, funciona tanto com OpenJDK quanto com o Oracle Java.
 ##### Debian
+
+##### Raspbian
+
+##### PFSense
+
+##### Docker
