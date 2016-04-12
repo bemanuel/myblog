@@ -1,12 +1,19 @@
 +++
-categories = ["Development", "GoLang"]
-Description = "Sobre o que é a ferramenta e como instalar"
+Categories = [
+	"Sysadmin", 
+	"NxFilter",
+	"DNS"
+]
 description = "Sobre o que é a ferramenta e como instalar"
-date = "2016-05-28T23:56:11-03:00"
-publishdate = "2016-05-01"
+tags = ["nxfilter", "dns","filtro","instalando"]
+date = "2016-04-12"
+publishdate = "2016-04-13"
 menu = "main"
 title = "NXFilter - O Filtro DNS"
-Tags= [ "dns","filtro" ]
+featured = "nxfilter01.png"
+featuredalt = ""
+featuredpath = "date"
+type = "post"
 +++
 
 #### Apresentação
@@ -19,6 +26,7 @@ Dentre as vantagens disponibilizadas se tem:
  2. Controle por autenticação usando: LDAP, AD, Single-sign-on ( SSO ), etc... 
  3. Pode substituir inclusive o seu proxy-cache como o Squid
  4. Usando outros componentes permite inclusive o bloqueio de ferramentas como UltraSurf e Tor
+ 5. Reconhecimento dinâmico de sites, não depende apenas de listas, encontra o padrão e a classifica
 
 #### Funcionamento
 Seu principio é atuar como servidor DNS, pode fazer:
@@ -29,31 +37,8 @@ Seu principio é atuar como servidor DNS, pode fazer:
  4. E inclusive como o próprio servidor DNS, permitindo registros A, AAAA, SOA e etc...
 
 
+#### Instalando
+A instalação do NxFilter é bem simplificada, o site disponibiliza pacotes deb,zip e outros formatos depreciados como exe.
 
-{{< highlight html >}}
-<section id="main">
-  <div>
-    <h1 id="title">{{ .Title }}</h1>
-    {{ range .Data.Pages }}
-      {{ .Render "summary"}}
-    {{ end }}
-  </div>
-</section>
-{{< /highlight >}}
-
-``` html
-<section id="main">
-  <div>
-    <h1 id="title">{{ .Title }}</h1>
-    {{ range .Data.Pages }}
-      {{ .Render "summary"}}
-    {{ end }}
-  </div>
-</section>
-```
-
-{{< highlight bash >}}
-$ teste.sh
-# rpm -qa
-
-{{< /highlight >}}
+Como pré-requisito só é necessário ter o java instalado na máquina, funciona tanto com OpenJDK quanto com o Oracle Java.
+##### Debian
