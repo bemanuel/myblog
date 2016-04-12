@@ -5,7 +5,7 @@ Categories = [
 ]
 description = "Instalando Graylog - Centralizador de logs"
 tags = ["graylog2", "graylog","centralizador","logs","instalando"]
-date = "2016-04-03"
+date = "2016-04-11"
 publishDate = "2016-04-12"
 menu = "main"
 title = "graylog - centralizador de logs"
