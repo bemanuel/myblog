@@ -27,6 +27,11 @@ Dentre as vantagens disponibilizadas se tem:
  3. Pode substituir inclusive o seu proxy-cache como o Squid
  4. Usando outros componentes permite inclusive o bloqueio de ferramentas como UltraSurf e Tor
  5. Reconhecimento dinâmico de sites, não depende apenas de listas, encontra o padrão e a classifica
+ 6.
+ 7.
+ 8.
+ 9.
+ 10. ...
 
 #### Funcionamento
 Seu principio é atuar como servidor DNS, pode fazer:
@@ -41,9 +46,8 @@ Seu principio é atuar como servidor DNS, pode fazer:
 A instalação do NxFilter é bem simplificada, o site disponibiliza pacotes deb,zip e outros formatos depreciados como exe.
 
 Como pré-requisito só é necessário ter o java instalado na máquina, funciona tanto com OpenJDK quanto com o Oracle Java.
-##### Debian
 
-##### Raspbian
+##### Debian Jessie / Raspbian
 ```bash
 $ sudo su - 
 # apt-get update
@@ -65,5 +69,3 @@ $ sudo su -
 # chmod +x *.sh
 # ./startup.sh -d
 
-
-##### Docker
