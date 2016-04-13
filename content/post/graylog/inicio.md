@@ -35,9 +35,16 @@ Os passos iniciais seriam recuperar os logs do seu serviço de páginas, depois 
 
 
 ## Pesquisando
-Na busca de um centralizador de logs encontrei o *GrayLog2* e o que mais achei interessante na ferramenta foi o fato de ser um pacote completo e todo acessível via browser. Exceto claro no que seria necessário para criar cluster e balanceamento de carga.
+Na busca de um centralizador de logs encontrei o [*GrayLog2*](https://www.graylog.org/), o que mais achei interessante na ferramenta foi o fato de ser um pacote completo e acessível via browser exceto quando necessário criar cluster e balanceamento de carga.
 
 Então seguindo a ideia de manter todos os logs em só lugar, ele permite centralizar e agregar todos os logs. Gerar gráficos e consultas baseadas nos dados coletados.
+
+## Funcionamento básico
+O [Graylog2](https://www.graylog.org/) tem a possibilidade de ativação de 'Inputs' permitindo que serviços como Fluentd,Logstash e Syslogd enviem as informações para o servidor.
+
+Deste modo é possivel tratar a informação e com 'Streams' pode se criar alarmes para determinados tipos de ocorrências. 
+
+Neste post só veremos a ativação do [Graylog2](https://www.graylog.org/) mas pretendo fazer outros posts ativando e explicando esses recursos.
 
 ## Graylog - instalando
 No site do próprio Graylog ele disponibiliza várias formas:
