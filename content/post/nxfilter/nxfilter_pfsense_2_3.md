@@ -19,7 +19,7 @@ type = "post"
 
 
 ### Apresentação
-** Atenção essa instalação não é homologada em produção e não teve testes de segurança, se feito não tenho responsabilidades pelos problemas causados
+**Atenção essa instalação não foi homologada em produção e não teve testes de segurança, se feito não tenho responsabilidades pelos problemas causados**
 
 Com o lançamento do pfSense 2.3 a instalação do NxFilter no mesmo servidor teve algumas mudanças, seguem os procedimentos para fazê-lo.
 
