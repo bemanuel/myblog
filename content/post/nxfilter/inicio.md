@@ -7,7 +7,7 @@ Categories = [
 description = "Sobre o que é a ferramenta e como instalar"
 tags = ["nxfilter", "dns","filtro","instalando","raspbian", "debian", "pfsense" ]
 date = "2016-04-12"
-publishdate = "2016-04-14"
+publishdate = "2016-04-15"
 menu = "main"
 title = "NXFilter - O Filtro DNS"
 featured = "nxfilter01.png"
@@ -56,7 +56,7 @@ $ sudo su -
 # dpkg -i nxfilter-3.1.5.deb
 ```
 
-##### PFSense 2.2.6 - Dica do Grupo NxFilter - DNS WebFi6lter no Telegram
+##### PFSense 2.2.6 - Dica do Grupo NxFilter - DNS WebFilter no Telegram
 ```
 # pkg update
 # pkg install openjdk8-jre
