@@ -25,7 +25,7 @@ googleAnalytics = ""
     # https://github.com/audreyr/favicon-cheat-sheet
     # Please see the favicon partial template for more information
     loadFavicon          = true
-    faviconVersion       = "/img/favicon.ico"
+    faviconVersion       = ""
     # Load minified files instead of the non minified files. The variable
     # is an array so that you can load multiple min files if necessary
     # Note: There are other ways to approach minification
