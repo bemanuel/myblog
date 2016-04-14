@@ -151,7 +151,6 @@ b_grep=`which grep`
 nxfilter_path="/opt/nxfilter"
 
 result=$($nxfilter_path/bin/ping.sh)
-echo $result
 
 if  [ "$result" = "ERR" ] ; then
    echo "Iniciando NxFilter"
