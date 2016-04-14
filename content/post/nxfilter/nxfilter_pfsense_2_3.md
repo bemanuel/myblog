@@ -70,7 +70,7 @@ mount -t procfs proc /proc
 ```
 Testando o funcionamento do pacote java
 ```
-rehas
+rehash
 java -version
 ```
 Deve retornar algo como 
