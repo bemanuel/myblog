@@ -143,3 +143,20 @@ Para deixar iniciando automaticamente você pode usar o pacote do pfsense **shel
 
 ``` /opt/nxfilter/bin/startup.sh -d ```
 
+É indicado se colocar no cron um script para verificar se o sistema está rodando, caso não ele ainda o ativa.
+Esse script também foi originado no grupo do Telegram mas teve uma pequena variação.
+```
+#!/bin/sh
+b_grep=`which grep`
+nxfilter_path="/opt/nxfilter"
+
+result=$($nxfilter_path/bin/ping.sh)
+echo $result
+
+if  [ "$result" = "ERR" ] ; then
+   echo "Iniciando NxFilter"
+   $nxfilter_path/bin/startup.sh -d
+fi
+```
+Grave o mesmo com o nome checknx.sh e coloque no /root, aí é chamar pra executar pelo cron.
+
