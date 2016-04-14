@@ -5,7 +5,7 @@ Categories = [
 	"DNS",
 	"pfSense"
 ]
-description = "Usando o NxFilter no pfSense 2.3"
+description = "Instalando o NxFilter no pfSense 2.3"
 tags = ["nxfilter", "dns","filtro","instalando","freebsd", "pfsense" ]
 date = "2016-04-13"
 publishdate = "2016-04-13"
