@@ -27,8 +27,8 @@ Em 27/04/2016 foi lançada a versão estável do Graylog a v 2.0 GA. Dentre toda
 ## Instalando
 
  Pré-requisito ter o Java 8 instalado. 
-	http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
-	https://www.vivaolinux.com.br/dica/Atualizando-o-Java-Runtime-Environment-JRE-da-Oracle-no-Ubuntu/
+1. http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
+2. https://www.vivaolinux.com.br/dica/Atualizando-o-Java-Runtime-Environment-JRE-da-Oracle-no-Ubuntu/
 
 ### Ubuntu 14.04/16.04
 ```
