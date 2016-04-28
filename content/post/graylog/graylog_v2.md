@@ -41,11 +41,13 @@ $ apt-get install oracle-java8-installer
 
 #ElasticSearch    
 $ sudo wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-$ sudo echo "deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
+$ sudo echo "deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" \
+ | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
     
 #MongoDB
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-$ sudo echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+$ sudo echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" \
+ | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 
 #Graylog
 $ wget https://packages.graylog2.org/repo/packages/graylog-2.0-repository_latest.deb
