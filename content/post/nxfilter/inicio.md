@@ -49,19 +49,19 @@ Como pré-requisito só é necessário ter o java instalado na máquina, funcion
 $ sudo su - 
 $ apt-get update
 $ apt-get install openjdk-8-jre-headless upstart
-$ wget -t0 -c http://nxfilter.org/download/nxfilter-3.1.5.deb
-$ dpkg -i nxfilter-3.1.5.deb
+$ wget -t0 -c http://nxfilter.org/download/nxfilter-3.1.8.deb
+$ dpkg -i nxfilter-3.1.8.deb
 ```
 
 ##### PFSense 2.2.6 - Dica do Grupo NxFilter - DNS WebFilter no Telegram
-```
+```bash
 $ pkg update
 $ pkg install openjdk8-jre
 $ rehash
 $ mkdir -p /opt/nxfilter
 $ cd /opt/nxfilter
-$ fetch http://nxfilter.org/download/nxfilter-3.1.5.zip
-$ unzip nxfilter-3.1.5.zip
+$ fetch http://nxfilter.org/download/nxfilter-3.1.8.zip
+$ unzip nxfilter-3.1.8.zip
 $ cd bin
 $ chmod +x *.sh
 $ ./startup.sh -d
