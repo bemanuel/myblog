@@ -68,4 +68,4 @@ $ sudo su -
 # cd bin
 # chmod +x *.sh
 # ./startup.sh -d
-
+```
