@@ -4,8 +4,8 @@ title = "Tecnologia"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 5 
-disqusShortname = "jwalker_pe"
-googleAnalytics = ""
+disqusShortname = "blogbemanuel"
+googleAnalytics = "UA-13290182-7"
 
 [params]
     # Sets the meta tag description, usually reserved for the main page

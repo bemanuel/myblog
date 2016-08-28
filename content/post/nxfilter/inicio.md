@@ -27,13 +27,9 @@ Dentre as vantagens disponibilizadas se tem:
  3. Pode substituir inclusive o seu proxy-cache como o Squid
  4. Usando outros componentes permite inclusive o bloqueio de ferramentas como UltraSurf e Tor
  5. Reconhecimento dinâmico de sites, não depende apenas de listas, encontra o padrão e a classifica
- 6.
- 7.
- 8.
- 9.
- 10. ...
 
 #### Funcionamento
+
 Seu principio é atuar como servidor DNS, pode fazer:
 
  1. Redirect
@@ -43,6 +39,7 @@ Seu principio é atuar como servidor DNS, pode fazer:
 
 
 #### Instalando
+
 A instalação do NxFilter é bem simplificada, o site disponibiliza pacotes deb,zip e outros formatos depreciados como exe.
 
 Como pré-requisito só é necessário ter o java instalado na máquina, funciona tanto com OpenJDK quanto com o Oracle Java.
@@ -50,14 +47,26 @@ Como pré-requisito só é necessário ter o java instalado na máquina, funcion
 ##### Debian Jessie / Raspbian
 ```bash
 $ sudo su - 
-# apt-get update
-# apt-get install openjdk-8-jre-headless upstart
-# wget -t0 -c http://nxfilter.org/download/nxfilter-3.1.5.deb
-# dpkg -i nxfilter-3.1.5.deb
+$ apt-get update
+$ apt-get install openjdk-8-jre-headless upstart
+$ wget -t0 -c http://nxfilter.org/download/nxfilter-3.1.8.deb
+$ dpkg -i nxfilter-3.1.8.deb
 ```
 
 ##### PFSense 2.2.6 - Dica do Grupo NxFilter - DNS WebFilter no Telegram
+```bash
+$ pkg update
+$ pkg install openjdk8-jre
+$ rehash
+$ mkdir -p /opt/nxfilter
+$ cd /opt/nxfilter
+$ fetch http://nxfilter.org/download/nxfilter-3.1.8.zip
+$ unzip nxfilter-3.1.8.zip
+$ cd bin
+$ chmod +x *.sh
+$ ./startup.sh -d
 ```
+<<<<<<< HEAD
 # pkg update
 # pkg install openjdk8-jre
 # rehash
@@ -69,3 +78,5 @@ $ sudo su -
 # chmod +x *.sh
 # ./startup.sh -d
 ```
+=======
+>>>>>>> 31629ff8dfb658e623a7684b38264b7955ff0cd8
