@@ -16,6 +16,9 @@ FROM alpine:3.4
   RUN mkdir -p /var/www
 
   RUN /usr/bin/git clone https://github.com/bemanuel/myblog.git /var/www/blog
+  RUN cd /var/www/blog && \
+      git submodule init && \
+      git submodule update
   #RUN /usr/bin/git clone https://github.com/jpescador/hugo-future-imperfect.git /var/www/blog/themes/hugo-future-imperfect
   
 
