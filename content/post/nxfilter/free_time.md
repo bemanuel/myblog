@@ -40,3 +40,9 @@ Para definir os horários e dias em que são aplicados os 'Free Time' você deve
 Neste exemplo já tem alguns modelos pré-configurados, vou alterar para deixar apenas um modelo de Free Time.
 
 {{< figure src="/img/2016/08/29/definindo_free_time_modelo.png" title="Policy > Free Time - modelo definido" >}}
+
+Agora o ponto principal, é necessário criar uma política que será usada para o Free Time, caso contrário - por padrão - será aplicada a mesma regra definida nos Grupos, no parâmetro 'Work-Time Policy'.
+
+{{< figure src="/img/2016/08/29/politica_corujao.png" title="Policy & Rule > Policy" >}}
+
+
