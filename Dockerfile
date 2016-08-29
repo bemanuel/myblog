@@ -1,5 +1,5 @@
-FROM alpine:3.3
-  ENV HUGO_VERSION 0.15
+FROM alpine:3.4
+  ENV HUGO_VERSION 0.16
   ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux_amd64
 
   RUN apk add --update git
@@ -9,6 +9,9 @@ FROM alpine:3.3
   RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
         && echo 'Decompactado...' && ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
         && echo 'Criado link...' && rm /usr/local/${HUGO_BINARY}.tar.gz
+  
+  RUN apk cache clean && \
+      rm -rf /var/cache/apk
 
   RUN mkdir -p /var/www
 
