@@ -45,4 +45,21 @@ Agora o ponto principal, é necessário criar uma política que será usada para
 
 {{< figure src="/img/2016/08/29/politica_corujao.png" title="Policy & Rule > Policy" >}}
 
+Após a criação da política temos de aplicá-la ao grupo, pois aí sim serão aplicados bloqueios diferentes.
 
+Original:
+{{< figure src="/img/2016/08/29/GrupoOriginal.png" title="User & Group > Group - Original" >}}
+
+Agora alterado...
+{{< figure src="/img/2016/08/29/GrupoFreeTime.png" title="User & Group > Group" >}}
+
+Após essa aplicação o usuário que estiver nesse mesmo grupo terá as políticas aplicadas.
+
+Para validar a informação basta acessar no horário definido no Free Time, a área ''User & Group > User'', escolha um usuário que esteja no grupo e clique em 'Test' ( como na imagem abaixo )
+{{< figure src="/img/2016/08/29/User_TestButton.png" title="User & Group > User - Testando" >}}
+
+
+Se tudo foi aplicado corretamente aparecerá a seguinte imagem:
+{{< figure src="/img/2016/08/29/UserTest_FreeTime.png" title="User & Group > User - Teste exibido" >}}
+
+`Vale ressaltar que estou fazendo o teste no período estabelecido no Free Time`
