@@ -10,8 +10,7 @@ FROM alpine:3.4
         && echo 'Decompactado...' && ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
         && echo 'Criado link...' && rm /usr/local/${HUGO_BINARY}.tgz
   
-  RUN apk cache clean && \
-      rm -rf /var/cache/apk
+  RUN rm -rf /var/cache/apk
 
   RUN mkdir -p /var/www
 
