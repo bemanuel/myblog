@@ -35,4 +35,5 @@ Existem vários pontos onde se ajusta o Free Time, há local para definição ge
 ### Confiuguração Geral
 Para definir os horários e dias em que são aplicados os 'Free Time' você deve acessar, como dito antes, o menu ``Policy > Free Time``.
 
+{{< figure src="/img/2016/08/29/definindo_free_time.png" title="Policy > Free Time" >}}
 
