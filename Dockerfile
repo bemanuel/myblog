@@ -13,7 +13,7 @@ FROM alpine:3.3
   RUN mkdir -p /var/www
 
   RUN /usr/bin/git clone https://github.com/bemanuel/myblog.git /var/www/blog
-  RUN /usr/bin/git clone https://github.com/jpescador/hugo-future-imperfect.git /var/www/blog/themes/hugo-future-imperfect
+  #RUN /usr/bin/git clone https://github.com/jpescador/hugo-future-imperfect.git /var/www/blog/themes/hugo-future-imperfect
   
 
   WORKDIR /var/www/blog
