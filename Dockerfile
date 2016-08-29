@@ -1,7 +1,7 @@
 FROM alpine:3.4
   ENV HUGO_VERSION 0.16
   ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
-  ENV BRANCH ${TAG} 
+  ENV BRANCH 0.8 
 
   RUN apk add --update git
   RUN apk add nginx 
@@ -15,8 +15,6 @@ FROM alpine:3.4
   RUN rm -rf /var/cache/apk
 
   RUN mkdir -p /var/www
-
-  RUN echo "Clonando tag ${TAG}"
 
   RUN git clone -b ${BRANCH} https://github.com/bemanuel/myblog.git /var/www/blog
 
