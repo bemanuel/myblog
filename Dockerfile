@@ -1,6 +1,7 @@
 FROM alpine:3.4
   ENV HUGO_VERSION 0.16
   ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
+  ENV BRANCH 0.8
 
   RUN apk add --update git
   RUN apk add nginx 
@@ -15,7 +16,7 @@ FROM alpine:3.4
 
   RUN mkdir -p /var/www
 
-  RUN /usr/bin/git clone https://github.com/bemanuel/myblog.git /var/www/blog
+  RUN /usr/bin/git clone -b ${BRANCH} https://github.com/bemanuel/myblog.git /var/www/blog
   RUN cd /var/www/blog && \
       git submodule init && \
       git submodule update
