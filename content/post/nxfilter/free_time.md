@@ -32,8 +32,11 @@ Existem vários pontos onde se ajusta o Free Time, há local para definição ge
 1. Geral: Você define em ``Policy > Free Time``. Será aplicada a todos os Grupos. Você pode definir intervalos e dias da semana.
 2. Pontual: Você pode definir diretamente no Grupo o intervalo aplicado como tal. Desvantagem: Você não pode definir que dias da semana isso se aplica.
 
-### Confiuguração Geral
+### Configuração Geral
 Para definir os horários e dias em que são aplicados os 'Free Time' você deve acessar, como dito antes, o menu ``Policy > Free Time``.
 
 {{< figure src="/img/2016/08/29/definindo_free_time.png" title="Policy > Free Time" >}}
 
+Neste exemplo já tem alguns modelos pré-configurados, vou alterar para deixar apenas um modelo de Free Time.
+
+{{< figure src="/img/2016/08/29/definindo_free_time_modelo.png" title="Policy > Free Time - modelo definido" >}}
