@@ -6,9 +6,10 @@ FROM alpine:3.4
   RUN apk add nginx 
   RUN apk add py-pygments && rm -rf /var/cache/apk/*
   ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tgz /usr/local/
-  RUN tar xzf /usr/local/${HUGO_BINARY}.tgz -C /usr/local/ \
-        && echo 'Decompactado...' && ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
-        && echo 'Criado link...' && rm /usr/local/${HUGO_BINARY}.tgz
+  RUN tar xzf /usr/local/${HUGO_BINARY}.tgz -C /usr/local/bin ./hugo && \
+        echo 'Decompactado...' && \
+        rm /usr/local/${HUGO_BINARY}.tgz
+	#&& ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
   
   RUN rm -rf /var/cache/apk
 
