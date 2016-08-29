@@ -16,8 +16,10 @@ FROM alpine:3.4
 
   RUN mkdir -p /var/www
 
-  RUN echo "Clonando tag ${TAG}" && \
-      git clone -b ${BRANCH} https://github.com/bemanuel/myblog.git /var/www/blog
+  RUN echo 'Clonando tag ${TAG}'
+
+  RUN git clone -b ${BRANCH} https://github.com/bemanuel/myblog.git /var/www/blog
+
   RUN cd /var/www/blog && \
       git submodule init && \
       git submodule update
