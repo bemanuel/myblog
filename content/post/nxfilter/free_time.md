@@ -6,8 +6,8 @@ Categories = [
 ]
 description = "Usando o recursos free time"
 tags = ["nxfilter", "dns","filtro","avançado","free-time", "policy"]
-date = "2016-08-29"
-publishdate = "2016-08-29"
+date = "2016-08-28"
+publishdate = "2016-08-28"
 menu = "main"
 title = "NXFilter - Usando a Politica Free-Time"
 featured = "nxfilter01.png"
