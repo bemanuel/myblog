@@ -1,21 +1,24 @@
 FROM alpine:3.4
   ENV HUGO_VERSION 0.16
-  ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux_amd64
+  ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
 
   RUN apk add --update git
   RUN apk add nginx 
   RUN apk add py-pygments && rm -rf /var/cache/apk/*
-  ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz /usr/local/
-  RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
-        && echo 'Decompactado...' && ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
-        && echo 'Criado link...' && rm /usr/local/${HUGO_BINARY}.tar.gz
+  ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tgz /usr/local/
+  RUN tar xzf /usr/local/${HUGO_BINARY}.tgz -C /usr/local/bin ./hugo && \
+        echo 'Decompactado...' && \
+        rm /usr/local/${HUGO_BINARY}.tgz
+	#&& ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
   
-  RUN apk cache clean && \
-      rm -rf /var/cache/apk
+  RUN rm -rf /var/cache/apk
 
   RUN mkdir -p /var/www
 
   RUN /usr/bin/git clone https://github.com/bemanuel/myblog.git /var/www/blog
+  RUN cd /var/www/blog && \
+      git submodule init && \
+      git submodule update
   #RUN /usr/bin/git clone https://github.com/jpescador/hugo-future-imperfect.git /var/www/blog/themes/hugo-future-imperfect
   
 
