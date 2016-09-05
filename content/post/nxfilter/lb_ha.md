@@ -16,3 +16,12 @@ featuredalt = ""
 featuredpath = "date"
 type = "post"
 +++
+
+
+#### Projeto - Implementar o Cluster NxFilter
+ 
+A ideia de se implementar o Cluster é, principalmente, aumentar a disponibilidade e qualidade dos serviços de dns na rede interna/externa, afinal o NxFilter é na sua essência um servidor DNS.
+
+Então vamos primeiro entender como funciona um servidor DNS e como ele poderia ser usado com HA e/ou Load Balance.
+
+#### Servidor DNS
