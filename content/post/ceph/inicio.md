@@ -48,4 +48,14 @@ Já a ideia da hipverconvergência é de que todos os pacotes são integrados e 
 
 Deste modo a Infra Hiperconvergente proporciona redução nos custos e mesmo ainda sim atingindo níveis superiores de disponibilização de serviços e armazenamento somado a alta performance.
 
+#### CEPH
 
+Neste primeiro post tentarei não entrar tanto em partes técnicas.
+
+O CEPH permite criar um ambiente com espaço de armazenamento escalável, com replicação e tolerância a falhas.
+
+### Um pouco de história - from Learning CEPH
+
+ CEPH foi desenvolvido por Sage Well como parte do seu PhD, o projeto inicial foi o sistema de arquivos CEPH, o qual se tornou Open Source em 2006 sob a licença LGPL. Entre 2003 e 2007, foi o período de pesquisas para o CEPH e também de crescimento dos seus componentes contanto com a contribuição da comunidade.
+
+ Em 2007 o projeto já tinha uma certa maturidade e estava pronto para ser incubado. A DreamHost foi a incubadora do projeto entre 2007 e 2011. Neste período o CEPH foi tomando forma, seus componentes se tornaram mais estáveis e seguros, novas funcionalidades foram contempladas e novos objetivos foram traçados. Neste ponto o CEPH passou a ter ...
