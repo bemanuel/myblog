@@ -26,7 +26,7 @@ A ideia é explicar o objetivo do mesmo e formas de implementação.
 
 Não sou um grande especialista mas sim um estudioso da área, caso encontrem alguma falha favor comentar que isso contribuirá para todos e assim aplicarei as correções.
  
-#### Hiperconvergência
+#### O que é Hiperconvergência ?
 
 Antes de qualquer coisa o que me fez chegar ao CEPH foi a Hiperconvergência. Comecei a estudar sobre isso pois o que sempre me incomodou em sistemas virtuais foi a falta de continuidade dos serviços, seja pela interdependência dos processos, seja pela falta de espaço no node A obrigando a mover a VM para um node B com mais espaço ou pelo simples fato de que o serviço caiu mas aparentemente estava tudo bem pois o servidor estava no ar.
 
@@ -44,7 +44,7 @@ Na Infra Convergente, com as vantagens que foram disponibilizadas pela virtualiz
 
 Mas na Infra Convergente ainda há problemas pois custos como a manutenibilidade e atualização dos equipamentos utilizados tem sua perda financeira. Para complementar essa estrutura ainda pode ser mais complicado pois é interessante adquirir novos dispositivos que trabalhem/integrem com os já existentes e se integrem com os mesmos. Tal processo pode ser complicado chegando ao ponto em que alguns casos é mais interessante tecna e financeiramente trocar todo o equipamento ao invés de mantê-lo.
 
-Já a ideia da hipverconvergência é de que todos os pacotes são integráveis e complementares, ou seja, ao adquirir um novo servidor ou rack todo o seu datacenter é beneficiado, aumentando capacidade de processamento e armazenamento em toda a estrutura sem necessidade de migração de serviços.
+Já a ideia da hipverconvergência é de que todos os pacotes são integrados e complementares, ou seja, ao adquirir um novo servidor ou rack mesmo que com especificações diferentes todo o seu datacenter é beneficiado, aumentando capacidade de processamento e armazenamento em toda a estrutura sem necessidade de migração de serviços.
 
 Deste modo a Infra Hiperconvergente proporciona redução nos custos e mesmo ainda sim atingindo níveis superiores de disponibilização de serviços e armazenamento somado a alta performance.
 
