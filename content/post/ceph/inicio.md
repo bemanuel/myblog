@@ -46,6 +46,6 @@ Mas na Infra Convergente ainda há problemas pois custos como a manutenibilidade
 
 Já a ideia da hipverconvergência é de que todos os pacotes são integráveis e complementares, ou seja, ao adquirir um novo servidor ou rack todo o seu datacenter é beneficiado, aumentando capacidade de processamento e armazenamento em toda a estrutura sem necessidade de migração de serviços.
 
-Deste modo a Infra Hiperconvergente causa redução nos custos e mesmo ainda sim atingindo níveis superiores de disponibilização de serviços e armazenamento somado a alta performance.
+Deste modo a Infra Hiperconvergente proporciona redução nos custos e mesmo ainda sim atingindo níveis superiores de disponibilização de serviços e armazenamento somado a alta performance.
 
 
