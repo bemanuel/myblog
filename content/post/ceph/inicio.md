@@ -42,7 +42,7 @@ Isso gerava uma mistura incrível de especificações distintas de hardware para
 
 Na Infra Convergente, com as vantagens que foram disponibilizadas pela virtualização foi criada a possibilidade de se ter todo um pacote de soluções, onde switchs, servidores, storages e roteadores eram customizados/customizáveis de modo a atender as necessidades do Datacenter sem grande impacto na construção desses Datacenter.
 
-Mas na Infra Convergente ainda há problemas pois custos como a manutenibilidade e atualização dos equipamentos utilizados tem sua perda financeira. Para complementar essa estrutura ainda pode ser mais complicado pois é interessante adquirir novos dispositivos que trabalhem/integrem com os já existentes. Tal processo pode ser complicado chegando ao ponto em que alguns casos é mais interessante tecna e financeiramente trocar todo o equipamento ao invés de mantê-lo.
+Mas na Infra Convergente ainda há problemas pois custos como a manutenibilidade e atualização dos equipamentos utilizados tem sua perda financeira. Para complementar essa estrutura ainda pode ser mais complicado pois é interessante adquirir novos dispositivos que trabalhem/integrem com os já existentes. Tal processo pode ser complicado chegando ao ponto em que alguns casos é mais interessante tecnológica e financeiramente trocar todo o equipamento ao invés de mantê-lo.
 
 Já a ideia da hipverconvergência é de que todos os pacotes são integrados e complementares, ou seja, ao adquirir um novo servidor ou rack mesmo que com especificações diferentes todo o seu datacenter é beneficiado, aumentando capacidade de processamento e armazenamento em toda a estrutura sem necessidade de migração de serviços.
 
