@@ -11,7 +11,7 @@ date = "2016-09-12"
 publishdate = "2016-09-12"
 menu = "main"
 title = "CEPH - O que é?"
-featured = "ceph.png"
+featured = "datacenter.png"
 featuredalt = ""
 featuredpath = "date"
 type = "post"
@@ -44,7 +44,7 @@ Na Infra Convergente, com as vantagens que foram disponibilizadas pela virtualiz
 
 Mas na Infra Convergente ainda há problemas pois custos como a manutenibilidade e atualização dos equipamentos utilizados tem sua perda financeira. Para complementar essa estrutura ainda pode ser mais complicado pois é interessante adquirir novos dispositivos que trabalhem/integrem com os já existentes. Tal processo pode ser complicado chegando ao ponto em que alguns casos é mais interessante tecnológica e financeiramente trocar todo o equipamento ao invés de mantê-lo.
 
-Já a ideia da hipverconvergência é de que todos os pacotes são integrados e complementares, ou seja, ao adquirir um novo servidor ou rack mesmo que com especificações diferentes todo o seu datacenter é beneficiado, aumentando capacidade de processamento e armazenamento em toda a estrutura sem necessidade de migração de serviços.
+Já a ideia da hiperconvergência é de que todos os pacotes são integrados e complementares, ou seja, ao adquirir um novo servidor ou rack mesmo que com especificações diferentes todo o seu datacenter é beneficiado, aumentando capacidade de processamento e armazenamento em toda a estrutura sem necessidade de migração de serviços.
 
 Deste modo a Infra Hiperconvergente proporciona redução nos custos e mesmo ainda sim atingindo níveis superiores de disponibilização de serviços e armazenamento somado a alta performance.
 
@@ -54,8 +54,25 @@ Neste primeiro post tentarei não entrar tanto em partes técnicas.
 
 O CEPH permite criar um ambiente com espaço de armazenamento escalável, com replicação e tolerância a falhas.
 
-### Um pouco de história - from Learning CEPH
+### Um pouco de história - from Learning CEPH ( http://www.livrariacultura.com.br/p/learning-ceph-86944824 )
 
- CEPH foi desenvolvido por Sage Well como parte do seu PhD, o projeto inicial foi o sistema de arquivos CEPH, o qual se tornou Open Source em 2006 sob a licença LGPL. Entre 2003 e 2007, foi o período de pesquisas para o CEPH e também de crescimento dos seus componentes contanto com a contribuição da comunidade.
+ CEPH foi desenvolvido por Sage Weil como parte do seu PhD, o projeto inicial foi o sistema de arquivos CEPH, o qual se tornou Open Source em 2006 sob a licença LGPL. Entre 2003 e 2007, foi o período de pesquisas para o CEPH e também de crescimento dos seus componentes contanto com a contribuição da comunidade.
 
- Em 2007 o projeto já tinha uma certa maturidade e estava pronto para ser incubado. A DreamHost foi a incubadora do projeto entre 2007 e 2011. Neste período o CEPH foi tomando forma, seus componentes se tornaram mais estáveis e seguros, novas funcionalidades foram contempladas e novos objetivos foram traçados. Neste ponto o CEPH passou a ter ...
+ Em 2007 o projeto já tinha uma certa maturidade e estava pronto para ser incubado. A DreamHost foi a incubadora do projeto entre 2007 e 2011. Neste período o CEPH foi tomando forma, seus componentes se tornaram mais estáveis e seguros, novas funcionalidades foram contempladas e novos objetivos foram traçados. A partir deste momento o CEPH já tinha opções para empresas. Nesse interim muitos desenvolvedores começaram a contribuir para o projeto, dentre eles Gregory Farnum, Josh Durgin, Samuel Just, Wido den Hollander, Yehuda Sade e Loïc Dachary. 
+
+ Em 2012 a empresa Inktank foi fundada pela DreamHost, visando de difundir os serviços e suporte para o Ceph.Seu principal objetivo era prover conhecimento, ferramentas e suporte para clientes empresariais, facilitando assim a adoção e gestão de sistemas usando o Ceph storage. Sage foi o fundador e CTO da Inktank. Em 2013, a empresa recebeu um investimos de US$ 13,5 milhões. Em 2014 a Red Hat adquiriu a Inktank por US$ 175 milhões. 
+
+ Alguns dos clientes da Inktank são: Cisco, CERN e a empresa de telecomunicações alemã Deutsch Telekom. Entre seus parceiros estão: Dell e Alcatel-Lucent. Que com a aquisição pela Red Hat, se tornaram clientes da mesma.
+
+ Ceph foi lançado na versão 0.2 e após isso os estágios de desenvolvimento evoluíram rapidamente, de modo que o tempo entre as novas versões se tornaram mais curtos. Em Julho de 2012 foi anunciada versão estável com o codinome Argonault ( v.0.48 [ LTS ]  ). Para saber sobre novas versões e notas sobre essas acesse http://ceph.com/category/releases/ .
+
+### Importância no mercado
+
+  Nos últimos anos o mercado empresarial tem exigido cada vez mais performance, escalabilidade e estabilidade da área de Storages. E segundo dados a necessidade de área para armazenamento vem crescendo numa progressão geométrica, segundo a IBM ( https://www.ibm.com/blogs/research/2016/02/exabytes-elephants-objects-and-spark/ ) já não se fala mais em Terabytes como a pouco tempo atrás, agora se fala em Petabytes e Exabytes. E que tudo deverá convergir para a nuvem.
+
+  Isso faz com que haja uma demanda para áreas de armazenamento e publição de sistemas que seja unificada, distribuída, confiável e com alta performance. Ainda - não menos importante - com fácil escalabilidade. Afinal a produção de informação não vai parar para esperar o aumento da área.
+
+  Ceph visa preencher exatamente essa lacuna, atende todos os requisitos. Atende as necessidades atuais e futuras. Ceph está incorporado ao Kernel Linux.
+
+
+
