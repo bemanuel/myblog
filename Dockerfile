@@ -1,7 +1,7 @@
 FROM alpine:3.4
   ENV HUGO_VERSION 0.16
   ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
-  ENV BRANCH 0.8 
+  ENV BRANCH 0.9
 
   RUN apk add --update git
   RUN apk add nginx 
