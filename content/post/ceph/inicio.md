@@ -18,7 +18,7 @@ type = "post"
 +++
 
 
-#### Série de Posts?
+## Série de Posts?
 
 Este será o primeiro de uma série de posts sobre o CEPH, me ajudará mais como plano de estudo, orientando o conhecimento sobre a tecnologia.
 
@@ -26,7 +26,7 @@ A ideia é explicar o objetivo do mesmo e formas de implementação.
 
 Não sou um grande especialista mas sim um estudioso da área, caso encontrem alguma falha favor comentar que isso contribuirá para todos e assim aplicarei as correções.
  
-#### O que é Hiperconvergência ?
+### O que é Hiperconvergência ?
 
 Antes de qualquer coisa o que me fez chegar ao CEPH foi a Hiperconvergência. Comecei a estudar sobre isso pois o que sempre me incomodou em sistemas virtuais foi a falta de continuidade dos serviços, seja pela interdependência dos processos, seja pela falta de espaço no node A obrigando a mover a VM para um node B com mais espaço ou pelo simples fato de que o serviço caiu mas aparentemente estava tudo bem pois o servidor estava no ar.
 
@@ -48,13 +48,13 @@ Já a ideia da hiperconvergência é de que todos os pacotes são integrados e c
 
 Deste modo a Infra Hiperconvergente proporciona redução nos custos e mesmo ainda sim atingindo níveis superiores de disponibilização de serviços e armazenamento somado a alta performance.
 
-#### CEPH
+## CEPH
 
 Neste primeiro post tentarei não entrar tanto em partes técnicas.
 
 O CEPH permite criar um ambiente com espaço de armazenamento escalável, com replicação e tolerância a falhas.
 
-### Um pouco de história - from Learning CEPH ( http://www.livrariacultura.com.br/p/learning-ceph-86944824 )
+#### Senta que lá vem história - from Learning CEPH ( http://www.livrariacultura.com.br/p/learning-ceph-86944824 )
 
  CEPH foi desenvolvido por Sage Weil como parte do seu PhD, o projeto inicial foi o sistema de arquivos CEPH, o qual se tornou Open Source em 2006 sob a licença LGPL. Entre 2003 e 2007, foi o período de pesquisas para o CEPH e também de crescimento dos seus componentes contanto com a contribuição da comunidade.
 
