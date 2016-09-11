@@ -11,7 +11,7 @@ date = "2016-09-12"
 publishdate = "2016-09-12"
 menu = "main"
 title = "CEPH - O que é?"
-featured = "datacenter.png"
+featured = "ceph.png"
 featuredalt = ""
 featuredpath = "date"
 type = "post"
@@ -72,7 +72,7 @@ O CEPH permite criar um ambiente com espaço de armazenamento escalável, com re
 
   Isso faz com que haja uma demanda para áreas de armazenamento e publição de sistemas que seja unificada, distribuída, confiável e com alta performance. Ainda - não menos importante - com fácil escalabilidade. Afinal a produção de informação não vai parar para esperar o aumento da área.
 
-  Ceph visa preencher exatamente essa lacuna, atende todos os requisitos. Atende as necessidades atuais e futuras. Ceph está incorporado ao Kernel Linux.
+  O Ceph visa preencher exatamente essa lacuna, atende todos os requisitos. Atende as necessidades atuais e futuras. O Ceph está incorporado ao Kernel Linux.
 
 
 
