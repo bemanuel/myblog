@@ -11,7 +11,7 @@ date = "2016-09-11"
 publishdate = "2016-09-11"
 menu = "main"
 title = "CEPH - O que é?"
-featured = "ceph.png"
+featured = "ceph.svg"
 featuredalt = ""
 featuredpath = "date"
 type = "post"
@@ -20,11 +20,13 @@ type = "post"
 
 ## Série de Posts?
 
-Este será o primeiro de uma série de posts sobre o CEPH, me ajudará mais como plano de estudo, orientando o conhecimento sobre a tecnologia.
+ Este será o primeiro de uma série de posts sobre o CEPH, me ajudará mais como plano de estudo, orientando o conhecimento sobre a tecnologia.
 
-A ideia é explicar o objetivo do mesmo e formas de implementação.
+ A ideia é explicar o objetivo do mesmo e formas de implementação.
 
-Não sou um grande especialista mas sim um estudioso da área, caso encontrem alguma falha favor comentar que isso contribuirá para todos e assim aplicarei as correções.
+ Em tempo, existem outras propostas além do CEPH para a parte de distribuição de arquivos, porém a ideia ainda não é fazer comparativos até para não perdermos o foco. A proposta dessa série é elucidar como ele funciona e seus complementos, afinal não adianta tentarmos fazer comparações antes de conhecer como realmente ele funciona. 
+
+ Não sou um grande especialista mas sim um estudioso da área, caso encontrem alguma falha favor comentar que isso contribuirá para todos e assim aplicarei as correções.
  
 ### O que é Hiperconvergência ?
 
@@ -54,9 +56,9 @@ Neste primeiro post tentarei não entrar tanto em partes técnicas.
 
 O CEPH permite criar um ambiente com espaço de armazenamento escalável, com replicação e tolerância a falhas.
 
-#### Senta que lá vem história - from Learning CEPH ( http://www.livrariacultura.com.br/p/learning-ceph-86944824 )
+### Senta que lá vem história - referência [Learning CEPH]( http://www.livrariacultura.com.br/p/learning-ceph-86944824 )
 
- CEPH foi desenvolvido por Sage Weil como parte do seu PhD, o projeto inicial foi o sistema de arquivos CEPH, o qual se tornou Open Source em 2006 sob a licença LGPL. Entre 2003 e 2007, foi o período de pesquisas para o CEPH e também de crescimento dos seus componentes contanto com a contribuição da comunidade.
+ O CEPH foi um projeto que teve seu desenvolvimento feito por Sage Weil como parte do seu PhD, o projeto inicial foi o sistema de arquivos CEPH, o qual se tornou Open Source em 2006 sob a licença LGPL. Entre 2003 e 2007, foi o período de pesquisas para o CEPH e também de crescimento dos seus componentes contanto com a contribuição da comunidade.
 
  Em 2007 o projeto já tinha uma certa maturidade e estava pronto para ser incubado. A DreamHost foi a incubadora do projeto entre 2007 e 2011. Neste período o CEPH foi tomando forma, seus componentes se tornaram mais estáveis e seguros, novas funcionalidades foram contempladas e novos objetivos foram traçados. A partir deste momento o CEPH já tinha opções para empresas. Nesse interim muitos desenvolvedores começaram a contribuir para o projeto, dentre eles Gregory Farnum, Josh Durgin, Samuel Just, Wido den Hollander, Yehuda Sade e Loïc Dachary. 
 
@@ -68,11 +70,24 @@ O CEPH permite criar um ambiente com espaço de armazenamento escalável, com re
 
 ### Importância no mercado
 
-  Nos últimos anos o mercado empresarial tem exigido cada vez mais performance, escalabilidade e estabilidade da área de Storages. E segundo dados a necessidade de área para armazenamento vem crescendo numa progressão geométrica, segundo a IBM ( https://www.ibm.com/blogs/research/2016/02/exabytes-elephants-objects-and-spark/ ) já não se fala mais em Terabytes como a pouco tempo atrás, agora se fala em Petabytes e Exabytes. E que tudo deverá convergir para a nuvem.
+  Nos últimos anos o mercado empresarial tem exigido cada vez mais performance, escalabilidade e estabilidade da área de Storages. E segundo dados a necessidade de área para armazenamento vem crescendo numa progressão geométrica, segundo a IBM - ( [matéria] (https://www.ibm.com/blogs/research/2016/02/exabytes-elephants-objects-and-spark/) ) - já não se fala mais em Terabytes como a pouco tempo atrás, agora se fala em Petabytes e Exabytes.E que tudo deverá convergir para a nuvem.
 
   Isso faz com que haja uma demanda para áreas de armazenamento e publição de sistemas que seja unificada, distribuída, confiável e com alta performance. Ainda - não menos importante - com fácil escalabilidade. Afinal a produção de informação não vai parar para esperar o aumento da área.
 
-  O Ceph visa preencher exatamente essa lacuna, atende todos os requisitos. Atende as necessidades atuais e futuras. O Ceph está incorporado ao Kernel Linux.
+  O Ceph visa preencher exatamente essa lacuna, atende todos os requisitos. Atende as necessidades atuais/futuras e já está incorporado ao Kernel Linux.
 
 
+### Ibagens eu quero ibagens
+
+  Mas como é realmente o funcionamento do CEPH ? Como ele faz isso ?
+ 
+  Então para facilitar o entendimento temos de conhecer os componentes básicos do CEPH:
+
+Ferramenta | Função
+----------- | ----------------------------------------------------------------------------------------------------
+Ceph OSD   | Daemon responsável por armazenar os dados, replicá-los, fazer o balanceamento e se comunicar com os monitors deixando-os atualizados quanto ao mapeamento dos dados.
+Monitors   | Verifica o funcionamento do Cluster CEPH, o mapeamento dos monitores e dos OSD, os mapas dos PG e o CRUSH. Guarda ainda as alterações ocorridas nos Monitors,OSDs e PGs.
+MDS | Metadata Server, armazena os metadados para dar apoio ao Ceph Filesystem ( o Ceph Block Devices e Ceph Object Storage não usam MDS ). Ele serve apenas para auxiliar o CEPH FS, tornando possível que usuários de sistemas executem comandos triviais como ls, find, etc...
+CRUSH | É o algoritmo responsável por determinar como armazenar e coletar os dados. Ele permite que os clientes CEPH se comuniquem diretamente com os OSD invés de precisar de um servidor ou controlador para intermediar a comunicação.
+PG | Placement Group - agrega os objetos dentro de um pool, já que rastrear objetos e seus metadados em um sistema de armazenamento de objetos pode gerar um custo computacional considerável. 
 
