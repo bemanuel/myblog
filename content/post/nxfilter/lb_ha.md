@@ -3,7 +3,8 @@ Categories = [
 	"Sysadmin", 
 	"NxFilter",
 	"DNS",
-        "Cluster"
+        "Cluster",
+	"HA"
 ]
 description = "Alta disponibilidade e Load Balance com NxFilter"
 tags = ["nxfilter", "dns","filtro","avançado","ha", "cluster", "lb", "loadbalance"]
@@ -62,9 +63,9 @@ Problemas que se teria para mais de um servidor NxFilter ativo sem o modo de clu
 
 - Teria de se comprar pacotes de licenças Jahalist para cada um dos servidores.
 
-- As políticas de acesso, as rules também teriam de ser aplicadas a cada um dos servidores.
+- As políticas de acesso e as rules também teriam de ser aplicadas a cada um dos servidores.
 
-- etc...
+- Ou seja, tudo e qualquer coisa pertinente teria de ser aplicado em cada um dos servidor DNS. 
 
 Os problemas seriam muitos, o cluster do NxFilter visa atender essas necessidades.
 
