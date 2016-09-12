@@ -58,6 +58,7 @@ Problemas que se teria para mais de um servidor NxFilter ativo sem o modo de clu
 #. Se é feita alguma configuração ( Whitelist, definição de AD, ou qualquer outra ) você teria de repetir o processo em cada um dos servidores NxFilter da sua empresa.
 #. Atualização de lista de filtro teria de ser repetido em cada servidor.
 #. Teria de se comprar pacotes de licenças Jahalist para cada um dos servidores.
+#. As políticas de acesso, as rules também teriam de ser aplicadas a cada um dos servidores.
 #. etc...
 
 Os problemas seriam muitos, o cluster do NxFilter visa atender essas necessidades.
