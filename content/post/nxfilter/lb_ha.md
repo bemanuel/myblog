@@ -27,7 +27,8 @@ Então vamos primeiro entender como funciona um servidor DNS e como ele poderia 
 
 ### Servidor DNS
 
-Segundo a [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) ao consultar um determinado domínio a um servidor DNS usa UDP/53:
+Segundo a [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) ao consultar um determinado domínio a um servidor DNS usa protocolo e porta UDP/53:
+
 {{< highlight go >}}
 
   " Consultas enviadas usando UDP podem se perder, 
@@ -63,9 +64,14 @@ Problemas que se teria para mais de um servidor NxFilter ativo sem o modo de clu
 	5. As políticas de acesso e as rules também teriam de ser aplicadas a cada um dos servidores.
 	6. Ou seja, tudo e qualquer coisa pertinente teria de ser aplicado em cada um dos servidor DNS. 
 
-Os problemas e o trabalho para isso não compensaria, o cluster do NxFilter visa atender essas necessidades.
+Os problemas causados e o trabalho para manter isso não compensariam o uso, o Cluster do NxFilter visa atender essas necessidades.
 
-### Criando o Cluster, usando a GUI
+Existem dois modos de se implementar o Cluster NxFilter.
+
+1. Via GUI
++ Via Console
+
+### Modo 1 - Criando o Cluster usando a GUI
 
 É muito prático e simples definir um cluster NxFilter, é possível fazê-lo por linha de comando ou GUI. 
 
@@ -92,7 +98,7 @@ Mais uma vez o parâmetro ''Mode'' vem por padrão com o valor ''None'' marque a
 
 Clique em Submit, e pare o servidor NxFilter.
 
-### Criando o Cluster, via console
+### Modo 2 - Criando o Cluster via console
 
 1. Pare os servidores NxFilter.
 2. Entre na pasta /nxfilter/conf
