@@ -150,4 +150,4 @@ Não importará a opção selecionada, ele sempre abrirá a tela de configuraç�
 
 ### Término do processo
 
-Nesse ponto está preparado o cluster NxFilter, agora é configurar as estações cliente ( ou o servidor DHCP ) para apontar os servidores DNS primário e secundário do NxFilter.
+Nesse ponto está preparado o cluster NxFilter, agora é configurar as estações cliente ( ou o servidor DHCP ) para apontar os servidores DNS primário (192.168.10.50) e secundário (192.168.10.51) do NxFilter.
