@@ -90,4 +90,6 @@ Monitors   | Verifica o funcionamento do Cluster CEPH, o mapeamento dos monitore
 MDS | Metadata Server, armazena os metadados para dar apoio ao Ceph Filesystem ( o Ceph Block Devices e Ceph Object Storage não usam MDS ). Ele serve apenas para auxiliar o CEPH FS, tornando possível que usuários de sistemas executem comandos triviais como ls, find, etc...
 CRUSH | É o algoritmo responsável por determinar como armazenar e coletar os dados. Ele permite que os clientes CEPH se comuniquem diretamente com os OSD invés de precisar de um servidor ou controlador para intermediar a comunicação.
 PG | Placement Group - agrega os objetos dentro de um pool, já que rastrear objetos e seus metadados em um sistema de armazenamento de objetos pode gerar um custo computacional considerável. 
-
+RADOS |
+Librados |
+Rados GW |
