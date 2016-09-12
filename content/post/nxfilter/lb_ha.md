@@ -21,7 +21,7 @@ type = "post"
 
 ### Projeto - Implementar o Cluster NxFilter
  
-A ideia de se implementar o Cluster é, principalmente, aumentar a disponibilidade e qualidade dos serviços de dns na rede interna/externa, afinal o NxFilter é na sua essência um servidor DNS.
+A ideia de se implementar o Cluster NxFilter é - principalmente - aumentar a disponibilidade e qualidade dos serviços DNS na rede interna/externa, afinal o NxFilter é na sua essência um servidor DNS.
 
 Então vamos primeiro entender como funciona um servidor DNS e como ele poderia ser usado com HA e/ou Load Balance.
 
@@ -55,19 +55,15 @@ Como visto antes a implementação base de consultas DNS já atende nossa necess
 
 Problemas que se teria para mais de um servidor NxFilter ativo sem o modo de cluster:
 
-* Se é utilizada a autenticação, como o servidor saberá que o usuário já está autenticado ?
+	1. Se é utilizada a autenticação, como o servidor saberá que o usuário já está autenticado ?
+	2. Se é feita alguma configuração ( Whitelist, definição de AD, ou qualquer outra ) 
+	você teria de repetir o processo em cada um dos servidores NxFilter da sua empresa.
+	3. Atualização de lista de filtro teria de ser repetido em cada servidor.
+	4. Teria de se comprar pacotes de licenças Jahalist para cada um dos servidores.
+	5. As políticas de acesso e as rules também teriam de ser aplicadas a cada um dos servidores.
+	6. Ou seja, tudo e qualquer coisa pertinente teria de ser aplicado em cada um dos servidor DNS. 
 
-* Se é feita alguma configuração ( Whitelist, definição de AD, ou qualquer outra ) você teria de repetir o processo em cada um dos servidores NxFilter da sua empresa.
-
-* Atualização de lista de filtro teria de ser repetido em cada servidor.
-
-* Teria de se comprar pacotes de licenças Jahalist para cada um dos servidores.
-
-* As políticas de acesso e as rules também teriam de ser aplicadas a cada um dos servidores.
-
-* Ou seja, tudo e qualquer coisa pertinente teria de ser aplicado em cada um dos servidor DNS. 
-
-Os problemas seriam muitos, o cluster do NxFilter visa atender essas necessidades.
+Os problemas e o trabalho para isso não compensaria, o cluster do NxFilter visa atender essas necessidades.
 
 ### Criando o Cluster, usando a GUI
 
