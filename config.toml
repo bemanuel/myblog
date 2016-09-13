@@ -7,6 +7,9 @@ paginate = 5
 disqusShortname = "blogbemanuel"
 googleAnalytics = "UA-13290182-7"
 
+[author]
+    name = "Bruno Emanuel"
+
 [params]
     # Sets the meta tag description, usually reserved for the main page
     description = "Blog sobre uso de tecnologias"
