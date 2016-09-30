@@ -3,18 +3,16 @@ FROM alpine:3.4
   ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
   ENV BRANCH master
 
-  RUN apk add --update git
-  RUN apk add nginx 
-  RUN apk add py-pygments && rm -rf /var/cache/apk/*
+  #RUN apk add --update git py-pygments
+  #RUN apk add nginx 
+  RUN apk add --update git py-pygments && rm -rf /var/cache/apk/*
   ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tgz /usr/local/
   RUN tar xzf /usr/local/${HUGO_BINARY}.tgz -C /usr/local/bin ./hugo && \
         echo 'Decompactado...' && \
         rm /usr/local/${HUGO_BINARY}.tgz
 	#&& ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
   
-  RUN rm -rf /var/cache/apk
-
-  RUN mkdir -p /var/www
+  RUN rm -rf /var/cache/apk && mkdir -p /var/www
 
   RUN git clone -b ${BRANCH} https://github.com/bemanuel/myblog.git /var/www/blog
 
