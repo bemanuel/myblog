@@ -76,4 +76,6 @@ O CEPH permite criar um ambiente com espaço de armazenamento escalável, com re
 
   O CEPH visa preencher exatamente essa lacuna, atende todos os requisitos. Atende as necessidades atuais/futuras e já está incorporado ao Kernel Linux.
 
+### Por hoje é só
+
   Como o conteúdo ficou muito extenso e agora não tem mais como não apresentar partes técnicas. Para um inicio já está bom, no próximo post já aprofundaremos mais.
