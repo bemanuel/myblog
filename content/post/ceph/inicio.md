@@ -30,7 +30,7 @@ type = "post"
  
 ### O que é Hiperconvergência ?
 
-Antes de qualquer coisa o que me fez chegar ao CEPH foi a Hiperconvergência. Comecei a estudar sobre isso pois o que sempre me incomodou em sistemas virtuais foi a falta de continuidade dos serviços, seja pela interdependência dos processos, seja pela falta de espaço no node A obrigando a mover a VM para um node B com mais espaço ou pelo simples fato de que o serviço caiu mas aparentemente estava tudo bem pois o servidor estava no ar.
+Antes de qualquer coisa o que me fez chegar ao CEPH foi a Hiperconvergência. Comecei a estudar sobre isso pois o que sempre me incomodou em sistemas virtuais foi a falta de continuidade dos serviços, seja pela interdependência dos processos, seja pela falta de espaço no node A que te obriga a mover a VM para um node B com mais espaço ( ou isso é feito de modo automático ) ou pelo simples fato de que o serviço caiu mas aparentemente estava tudo bem pois o servidor estava no ar.
 
 Tenho estudado muitas coisas recentemente: Docker, CEPH, NxFilter, LXC, Cloud Computing, cultura DevOps ( coisa que já aplicava a muito tempo e não sabia que esse era o nome ), Git, Puppet e assim vai.
 
