@@ -50,7 +50,7 @@ Já a ideia da hiperconvergência é de que todos os pacotes são integrados e c
 
 Deste modo a Infra Hiperconvergente proporciona redução nos custos e mesmo ainda sim atingindo níveis superiores de disponibilização de serviços e armazenamento somado a alta performance.
 
-## CEPH
+## CEPH, o que é ?
 
 Neste primeiro post tentarei não entrar tanto em partes técnicas.
 
@@ -62,11 +62,11 @@ O CEPH permite criar um ambiente com espaço de armazenamento escalável, com re
 
  Em 2007 o projeto já tinha uma certa maturidade e estava pronto para ser incubado. A DreamHost foi a incubadora do projeto entre 2007 e 2011. Neste período o CEPH foi tomando forma, seus componentes se tornaram mais estáveis e seguros, novas funcionalidades foram contempladas e novos objetivos foram traçados. A partir deste momento o CEPH já tinha opções para empresas. Nesse interim muitos desenvolvedores começaram a contribuir para o projeto, dentre eles Gregory Farnum, Josh Durgin, Samuel Just, Wido den Hollander, Yehuda Sade e Loïc Dachary. 
 
- Em 2012 a empresa Inktank foi fundada pela DreamHost, visando de difundir os serviços e suporte para o Ceph.Seu principal objetivo era prover conhecimento, ferramentas e suporte para clientes empresariais, facilitando assim a adoção e gestão de sistemas usando o Ceph storage. Sage foi o fundador e CTO da Inktank. Em 2013, a empresa recebeu um investimos de US$ 13,5 milhões. Em 2014 a Red Hat adquiriu a Inktank por US$ 175 milhões. 
+ Em 2012 a empresa Inktank foi fundada pela DreamHost, visando de difundir os serviços e suporte para o CEPH.Seu principal objetivo era prover conhecimento, ferramentas e suporte para clientes empresariais, facilitando assim a adoção e gestão de sistemas usando o CEPH storage. Sage foi o fundador e CTO da Inktank. Em 2013, a empresa recebeu um investimos de US$ 13,5 milhões. Em 2014 a Red Hat adquiriu a Inktank por US$ 175 milhões. 
 
  Alguns dos clientes da Inktank são: Cisco, CERN e a empresa de telecomunicações alemã Deutsch Telekom. Entre seus parceiros estão: Dell e Alcatel-Lucent. Que com a aquisição pela Red Hat, se tornaram clientes da mesma.
 
- Ceph foi lançado na versão 0.2 e após isso os estágios de desenvolvimento evoluíram rapidamente, de modo que o tempo entre as novas versões se tornaram mais curtos. Em Julho de 2012 foi anunciada versão estável com o codinome Argonault ( v.0.48 [ LTS ]  ). Para saber sobre novas versões e notas sobre essas acesse http://ceph.com/category/releases/ .
+ CEPH foi lançado na versão 0.2 e após isso os estágios de desenvolvimento evoluíram rapidamente, de modo que o tempo entre as novas versões se tornaram mais curtos. Em Julho de 2012 foi anunciada versão estável com o codinome Argonault ( v.0.48 [ LTS ]  ). Para saber sobre novas versões e notas sobre essas acesse http://ceph.com/category/releases/ .
 
 ### Importância no mercado
 
@@ -74,22 +74,6 @@ O CEPH permite criar um ambiente com espaço de armazenamento escalável, com re
 
   Isso faz com que haja uma demanda para áreas de armazenamento e publição de sistemas que seja unificada, distribuída, confiável e com alta performance. Ainda - não menos importante - com fácil escalabilidade. Afinal a produção de informação não vai parar para esperar o aumento da área.
 
-  O Ceph visa preencher exatamente essa lacuna, atende todos os requisitos. Atende as necessidades atuais/futuras e já está incorporado ao Kernel Linux.
+  O CEPH visa preencher exatamente essa lacuna, atende todos os requisitos. Atende as necessidades atuais/futuras e já está incorporado ao Kernel Linux.
 
-
-### Ibagens eu quero ibagens
-
-  Mas como é realmente o funcionamento do CEPH ? Como ele faz isso ?
- 
-  Então para facilitar o entendimento temos de conhecer os componentes básicos do CEPH:
-
-Ferramenta | Função
------------ | ----------------------------------------------------------------------------------------------------
-Ceph OSD   | Daemon responsável por armazenar os dados, replicá-los, fazer o balanceamento e se comunicar com os monitors deixando-os atualizados quanto ao mapeamento dos dados.
-Monitors   | Verifica o funcionamento do Cluster CEPH, o mapeamento dos monitores e dos OSD, os mapas dos PG e o CRUSH. Guarda ainda as alterações ocorridas nos Monitors,OSDs e PGs.
-MDS | Metadata Server, armazena os metadados para dar apoio ao Ceph Filesystem ( o Ceph Block Devices e Ceph Object Storage não usam MDS ). Ele serve apenas para auxiliar o CEPH FS, tornando possível que usuários de sistemas executem comandos triviais como ls, find, etc...
-CRUSH | É o algoritmo responsável por determinar como armazenar e coletar os dados. Ele permite que os clientes CEPH se comuniquem diretamente com os OSD invés de precisar de um servidor ou controlador para intermediar a comunicação.
-PG | Placement Group - agrega os objetos dentro de um pool, já que rastrear objetos e seus metadados em um sistema de armazenamento de objetos pode gerar um custo computacional considerável. 
-RADOS |
-Librados |
-Rados GW |
+  Como o conteúdo ficou muito extenso e agora não tem mais como não apresentar partes técnicas. Para um inicio já está bom, no próximo post já aprofundaremos mais.
