@@ -7,7 +7,7 @@ Categories = [
 ]
 description = "Alta disponibilidade e Hiperconvergência"
 tags = ["ceph", "storage","hiperconvergência","ha", "cluster", "lb", "loadbalance","raid"]
-date = "2016-09-10"
+date = "2016-10-14"
 publishdate = "2016-10-14"
 menu = "main"
 title = "CEPH - O que é?"
