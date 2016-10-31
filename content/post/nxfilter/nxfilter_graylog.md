@@ -19,7 +19,7 @@ featuredpath = "date"
 type = "post"
 +++
 
-## Relatórios no NxFilter
+# Relatórios no NxFilter
 
   O NxFilter tem relatórios gráficos e com apresentação diversificada mas como todos os sistemas hoje existentes nem todos os relatórios apresentados podem atender as mais diversas necessidades. Porém, assim como a maioria dos sistemas, o serviço NxFilter vem com a possibilidade de se usar o Syslog para exportar seus registros em tempo de execução.
 
@@ -48,19 +48,53 @@ type = "post"
 
  Por exemplo, o Syslog enviará para o servidor SyslogD o seguinte texto:
 
- NXFILTER|2013-01-28 10:53:23|Y|www.bbc.co.uk|pwuser|192.168.0.101|admin|news|Blocked by admin|33
+       NXFILTER|2013-01-28 10:53:23|Y|www.bbc.co.uk|pwuser|192.168.0.101|admin|news|Blocked by admin|33
 
  Que significará:
  
- # Prefixo : NXFILTER
- # Data : ‘2013-01-28 10:53:23’
- # Bloqueado (Sim=y/Não=n) : Y
- # Domínio : www.bbc.co.uk
- # Usuário : pwuser
- # IP Cliente : 192.168.0.101
- # Política : admin
- # Categoria : news
- # Motivo do bloqueio : ‘Blocked by admin’
- # Tipo de consulta DNS : 33
+ * Prefixo : NXFILTER
+ * Data : ‘2013-01-28 10:53:23’
+ * Bloqueado (Sim=y/Não=n) : Y
+ * Domínio : www.bbc.co.uk
+ * Usuário : pwuser
+ * IP Cliente : 192.168.0.101
+ * Política : admin
+ * Categoria : news
+ * Motivo do bloqueio : ‘Blocked by admin’
+ * Tipo de consulta DNS : 33
+
+## Graylog
+
+  O serviço Graylog funciona como Centralizador de Logs. Permitindo receber logs de diversas maneiras inclusive através do modo Syslog.
+
+  São criados Inputs e esses recebem as mensagens, permitindo gerar Extratores ( para quebrar e manipular as mensagens ) e Streams para gerar Dashboards e alertas.
+
+  Não vou desperdiçar o tempo explicando os motivos de se utilizar um centralizador pois já foi comentado em [Graylog - Centralizador de Logs](http://blog.bemanuel.com.br/post/graylog/inicio/) e a instalação da versão mais nova do Graylog é explicada em outro post neste mesmo blog com o título [GRAYLOG 2.0 GA - CENTRALIZADOR DE LOGS](http://blog.bemanuel.com.br/post/graylog/graylog_v2/).
+
+  Para esse post eu utilizei a imagem do Graylog para Docker [Graylog/AllInOne](https://hub.docker.com/r/graylog2/allinone/), afim de tornar mais rápida e fácil a criação deste post.
+
+### Graylog - Input e Extractor 
+
+  O Graylog permite que sejam criados vários canais de Input ( Entrada ) de dados, isso facilita para separarmos ou organizarmos de onde vem as informações e como estas deverão ser trabalhadas. Não digo que o modo como farei seja o mais perfeito mas é o modo como tem me atendido e essa é a beleza da ferramenta, a flexibilidade.
+
+  Então o INPUT é composto basicamente do tipo a ser trabalhado, que pode ser GELF ( formato proprietário ), JSON ( para entradas de APIs HTTP ), Syslog ( que já comentamos anteriormente ) e outros. Somado ao tipo de Input, ao se definir a criação do mesmo surgirá uma nova janela pedindo informações como, isso para o caso de criar um Input do tipo ''Syslog'':
+
+  1.  O nó que escutará/receberá essas informações ( pois o Graylog pode ser formado por diversos nós )
+  2.  O título que será dado a esse INPUT 
+  3.  O IP ao qual ele será vinculado
+  4.  A porta que escutará o serviço 
+
+  Há outras opções para o mesmo INPUT mas só usaremos estas para esse post.
+
+  O Extractor
 
 
+## Graylog e NxFilter - configurando 
+ 
+  Vamos usar os seguintes parâmetros:
+
+  | Servidor NxFilter | 192.168.1.1 |
+  | Servidor Gralog | 192.168.1.2 |
+  | Porta Syslog | 5140 |
+  | Procolo do Syslog | UDP |
+   
