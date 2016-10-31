@@ -31,7 +31,7 @@ type = "post"
   
   Para isso se instalar um servidor syslogd que atende o padrão Syslog e que irá receber os dados enviados pelo servidor HTTP já citado. Desse modo todos os dados de acesso ficarão arquivados nesse servidor remoto.
 
-## O envio do NxFilter
+## Como funciona o Syslog no NxFilter
 
   O servidor NxFilter, conforme documentação do mesmo [Syslog no NxFilter](http://docs.nxf.kernel.inf.br/pt_BR/latest/pages/misc/syslog.html), é composto por dados separados por '|' e segue o seguinte padrão e ordem para envio dos dados aos servidores Syslog:
 
