@@ -121,3 +121,6 @@ SRVGRA |    Servidor Graylog   | 192.168.1.2
 PRTSYS |    Porta Syslog       | 5140
 ----   |    Procolo do Syslog  | UDP
 
+
+{{< figure src="/img/2016/11/graylog_nxfilter_msgs.png" title="Mensagens capturadas" >}}
+
