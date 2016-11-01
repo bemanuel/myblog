@@ -106,6 +106,10 @@ srv | sys     | date
 ----- | :-----: | --------:
 srvl00nxf500.bemanuel.com.br | NXFILTER | 2016-11-01 08:45:37
 
+ Foram criados os campos/fields: srv, sys e date. Me permitindo inclusive filtrar as ocorrências por eles.
+
+ Por conta dessa facilidade usarei o Grok. No Graylog ele já vem com diversos padrões especificados, além claro dos usados aqui no exemplo ( HOSTNAME, WORD e TIMESTAMP_ISO8601 )
+
 ## Graylog e NxFilter - configurando 
  
   Vamos usar os seguintes parâmetros:
