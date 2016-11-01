@@ -77,6 +77,7 @@ type = "post"
 
   O Graylog permite que sejam criados vários canais de Input ( Entrada ) de dados, isso facilita para separarmos ou organizarmos de onde vem as informações e como estas deverão ser trabalhadas. Não digo que o modo como farei seja o mais perfeito mas é o modo como tem me atendido e essa é a beleza da ferramenta, a flexibilidade.
 
+#### INPUT ( Graylog )
   Então o INPUT é composto basicamente do tipo a ser trabalhado, que pode ser GELF ( formato proprietário ), JSON ( para entradas de APIs HTTP ), Syslog ( que já comentamos anteriormente ) e outros. Somado ao tipo de Input, ao se definir a criação do mesmo surgirá uma nova janela pedindo informações como, isso para o caso de criar um Input do tipo ''Syslog'':
 
   1.  O nó que escutará/receberá essas informações ( pois o Graylog pode ser formado por diversos nós )
@@ -86,8 +87,24 @@ type = "post"
 
   Há outras opções para o mesmo INPUT mas só usaremos estas para esse post.
 
-  O Extractor
+#### EXTRACTOR ( Graylog )
+  O Extractor do Graylog permite que você trabalhe as mensagens recebidas de modo a classificar e especificar a que se referem os valores.
+  
+  Para fazer isso o Extrator oferece diversos meios seja por usando Expressão Regular, JSON, ''Split & Index'' ( Cortar/Indexar ), Copiando a mensagem ou usando o GROK.
 
+  Quem já trabalhou com ElasticSearch ou Logstash já conhece ou deve ter ouvido falar dele. O Grok permite que se faça uma combinação de padrões afim de extrair informações e indexa-las. A sintaxe dele é bem simples %{SINTAXE:SEMÂNTICA}. Por exemplo, se você tem a mensagem
+
+       srvl00nxf500.bemanuel.com.br NXFILTER|2016-11-01 08:45:37
+
+ Com o GROK você usaria os seguintes padrões pra capturar e indexar a parte da mensagem:
+
+       %{HOSTNAME:srv} %{WORD:sys}\|%{TIMESTAMP_ISO8601:date}\|
+
+ Você obteria:
+
+srv | sys     | date
+----- | :-----: | --------:
+srvl00nxf500.bemanuel.com.br | NXFILTER | 2016-11-01 08:45:37
 
 ## Graylog e NxFilter - configurando 
  
@@ -96,11 +113,7 @@ type = "post"
 Alias  |   Descrição           |   Valor
 -------|-----------------------| -------------:
 SRVNXF |    Servidor NxFilter  | 192.168.1.1
-SRVGRA |    Servidor Graylog    | 192.168.1.2
+SRVGRA |    Servidor Graylog   | 192.168.1.2
 PRTSYS |    Porta Syslog       | 5140
 ----   |    Procolo do Syslog  | UDP
 
-Name    | Age
---------|------
-Bob     | 27
-Alice   | 23
