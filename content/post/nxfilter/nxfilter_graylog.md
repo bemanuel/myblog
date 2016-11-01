@@ -93,13 +93,8 @@ type = "post"
  
   Vamos usar os seguintes parâmetros:
 
------------------ | ------------
+------------------|------------
 Servidor NxFilter | 192.168.1.1
 Servidor Gralog | 192.168.1.2
 Porta Syslog | 5140
 Procolo do Syslog | UDP
-   
-Name    | Age
---------|------
-Bob     | 27
-Alice   | 23
