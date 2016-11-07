@@ -119,9 +119,46 @@ Alias  |   Descrição           |   Valor
 SRVNXF |    Servidor NxFilter  | 192.168.1.1
 SRVGRA |    Servidor Graylog   | 192.168.1.2
 PRTSYS |    Porta Syslog       | 5140
+----   |    Placa de rede      | ens18
 ----   |    Procolo do Syslog  | UDP
+
+
+Lembrando que estou considerando que já instalou o Graylog.
+
+No NxFilter não há a opção de se mudar a porta 514 e no Graylog ( a não ser que você esteja fazendo errado ) não se consegue levantar portas inferiores a 1024 sem que o serviço seja levantado pelo usuário ''root''.
+
+Para que isso funcione faremos o redirecionamento de solicitações da porta 514 para a porta 5140 - que será a utilizada neste post, conforme especificado acima.
+
+    sudo iptables -A PREROUTING -t nat -i ens18 -p udp --dport 514 -j REDIRECT --to-port 1051
+
+`Esse comando deve ser executado no servidor Graylog com o usuário root`
+
+
+No servidor NxFilter tudo que é necessário ser feito é ir em `Config > Setup` e definir o ip do servidor Graylog.
+
+{{< figure src="/img/2016/11/graylog_nxfilter_syslog.png" title="Configurando o serviço Syslog no NxFilter" >}}
+
+Após esse procedimento é necessário reiniciar o NxFilter.
+
+A partir daqui todo o processo é feito no Graylog.
+
+No Graylog temos de fazer os seguintes passos:
+
+1. Criar o INPUT
+2. Aplicar um Extractor na mensagem recebida
+3. Criar os Gráficos
+4. Gerar um Stream para criar alertas
+
+###. Criando o INPUT
+
+O INPUT é a parte base do sistema de gerenciamento de logs, através dele que são coletadas as informações. Será criado um INPUT para a entrada de registros enviados pelo NxFilter
+
+{{< figure src="/img/2016/11/graylog_nxfilter_input.png" title="Criando INPUT" >}}
+
+{{< figure src="/img/2016/11/graylog_nxfilter_inputi_01.png" title="Definindo parâmetros do INPUT" >}}
 
 
 {{< figure src="/img/2016/11/graylog_nxfilter_msgs.png" title="Mensagens capturadas" >}}
 
+{{< figure src="/img/2016/11/graylog_nxfilter_msgs.png" title="Mensagens capturadas" >}}
 
