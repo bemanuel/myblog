@@ -129,7 +129,7 @@ No NxFilter não há a opção de se mudar a porta 514 e no Graylog ( a não ser
 
 Para que isso funcione faremos o redirecionamento de solicitações da porta 514 para a porta 5140 - que será a utilizada neste post, conforme especificado acima.
 
-    sudo iptables -A PREROUTING -t nat -i ens18 -p udp --dport 514 -j REDIRECT --to-port 1051
+    sudo iptables -A PREROUTING -t nat -i ens18 -p udp --dport 514 -j REDIRECT --to-port 5140 
 
 `Esse comando deve ser executado no servidor Graylog com o usuário root`
 
