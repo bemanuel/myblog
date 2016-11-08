@@ -149,14 +149,30 @@ No Graylog temos de fazer os seguintes passos:
 3. Criar os Gráficos
 4. Gerar um Stream para criar alertas
 
-###. Criando o INPUT
+### Criando o INPUT
 
-O INPUT é a parte base do sistema de gerenciamento de logs, através dele que são coletadas as informações. Será criado um INPUT para a entrada de registros enviados pelo NxFilter
+O INPUT é a parte base do sistema de gerenciamento de logs, através dele que são coletadas as informações. Será criado um INPUT para a entrada de registros enviados pelo NxFilter e conforme definido anteriormente a porta usada será a 5140.
 
-{{< figure src="/img/2016/11/graylog_nxfilter_input.png" title="Criando INPUT" >}}
+Acesse o menu em ''System > Inputs'', lá você terá acesso a todos os Inputs registrados.
 
-{{< figure src="/img/2016/11/graylog_nxfilter_inputi_01.png" title="Definindo parâmetros do INPUT" >}}
+{{< figure src="/img/2016/11/graylog_nxfilter_system_inputs.png" title="System >  Inputs" >}}
 
+Retornando a listagem de inputs existentes e suas estatísticas. Para criar o seu input acesse o combo com a listagem de tipos de inputi, escolho o modelo ''Syslog UDP'' e clique em ''Launch new input''. 
+
+{{< figure src="/img/2016/11/graylog_nxfilter_criando_input_00.png" title="Combo Input" >}}
+
+{{< figure src="/img/2016/11/graylog_nxfilter_criando_input.png" title="Criando INPUT" >}}
+
+Em seguida aparecerá uma janela solicitando a definição de parâmetros para esse INPUT. Defina o título/nome do input como ''NxFilter'' e em `Node` você deve escolher que servidor do Graylog receberá os registros do syslog para isso basta clicar na seta do combo e aparecerá a listagem dos `nodes` registrados, deixe `Bind address` com o valor padrão '0.0.0.0' e em port - que é a porta que o serviço deverá abrir para reveber os registros - sete o valor 5140.
+
+Há ainda outros parâmetros mas para o momento somente esses interessam.
+
+Deverá aparecer um item como o abaixo...
+
+
+{{< figure src="/img/2016/11/graylog_nxfilter_criando_input_01.png" title="Definindo parâmetros do INPUT" >}}
+
+Deverá aparecer
 
 {{< figure src="/img/2016/11/graylog_nxfilter_msgs.png" title="Mensagens capturadas" >}}
 
