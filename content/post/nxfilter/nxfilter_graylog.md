@@ -172,9 +172,12 @@ Deverá aparecer um item como o abaixo...
 
 {{< figure src="/img/2016/11/graylog_nxfilter_criando_input_01.png" title="Definindo parâmetros do INPUT" >}}
 
-Deverá aparecer
+Após a criação do Input deverá aparecer o item contendo:
+1. título e protocolo definidos
+2. a porta
+3. Botões para: Exibir as mensagens, Gerenciar Extratores, Parar o Input e outros...
 
-{{< figure src="/img/2016/11/graylog_nxfilter_msgs.png" title="Mensagens capturadas" >}}
+{{< figure src="/img/2016/11/graylog_nxfilter_input_criado.png" title="Resultado da criação do Input" >}}
 
 {{< figure src="/img/2016/11/graylog_nxfilter_msgs.png" title="Mensagens capturadas" >}}
 
