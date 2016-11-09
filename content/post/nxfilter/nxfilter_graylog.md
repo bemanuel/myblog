@@ -224,4 +224,59 @@ Se estiver tudo correto, ao clicar no botão 'Try', que fica a direita do 'Field
 
 {{< figure src="/img/2016/11/graylog_nxfilter_extractor_01.png" >}}
 
+Em 'Extraction strategy' deixe marcado 'Copy', pois segundo o Graylog o procedimento de recorte ('Cut') não funciona em campos como o 'message'.
+
+Em 'Extractor title' preencha com ''NxFilter''. Clique em 'Create extractor'. Irá para uma tela onde listam os Extractors para esse input, no caso deverá aparecer somente o 'NxFilter'.
+
+Clique em 'Details', se estiver tudo certo aparecerá como a tela abaixo.
+
+{{< figure src="/img/2016/11/graylog_nxfilter_extractor_02.png" >}}
+
+Estando o serviço do NxFilter configurado para enviar as mensagens para o Graylog, já poderão ser vistas mensagens do NxFilter. A princípio parecerão as mesmas mensagens antes apresentadas, mas na área 'Fields' estarão listados os campos que criamos com o 'Extractor' como 'block' e 'reason'.
+
+{{< figure src="/img/2016/11/graylog_nxfilter_search_result.png" >}}
+
+
+## Criando um Dashboard para o NxFilter
+
+ Com isso podemos criar agora o Dashboard com informações sobre o uso de DNS na nossa rede. 
+
+ No cantos esquerdos do campo há uma seta, clicando nela aparece um quadro com opções.
+
+. Generate Chart - Gera um gráfico, só funciona para campos númericos
+. Quick values - Gera um gráfico pizza, contendo estatísticas simples como quantidade/percentual de um determinado registro
+. Statistics - Estatísticas mostrando quantidades máximas, mínimas, desvio padrão, etc...
+. World Map - Se o campo for IP e estiver ativado o recurso de GeoIP ele apresenta um mapa indicando a origem dos mesmos, desde que sejam IPs válidos. 
+
+
+{{< figure src="/img/2016/11/graylog_nxfilter_search_graphs_00.png" >}}
+
+Tendo gerado a informação que julgue interessante você pode jogar ele em um Dashboard existente ou criar um novo caso não exista nenhum.
+
+No gráfico gerado clique em 'Add to Dashboard', permitindo escolher um existente. 
+
+  Se desejar criar um novo Dashboard vá no menu 'Dashboards' e clique em 'Create Dashboard'.
+
+{{< figure src="/img/2016/11/graylog_nxfilter_search_graphs_01.png" >}}
+
+Na criação do dashboard, o sistema pedirá o Título/Title e a Descrição/Description. Os campos são obrigatórios.
+
+{{< figure src="/img/2016/11/graylog_nxfilter_criando_dashboard_00.png" >}}
+
+Em seguida aparecerá uma tela pedindo o Título/Title para o Widget que você selecionou. Tem as opções:
+
+[] Show pie chart - Exibe gráfico torta
+[] Show data table - Exibe dados
+
+Escolha o que interessar - isso pode ser modificado depois - e clique em ''Create''.
+
+{{< figure src="/img/2016/11/graylog_nxfilter_criando_dashboard.png" >}}
+
+Aparecerá o Dashboard já com o Widget. Seguem exemplos de Dashboards.
+
+{{< figure src="/img/2016/11/graylog_nxfilter_criando_dashboard.png" >}}
+
+{{< figure src="/img/2016/11/graylog_nxfilter_dashboard_completo.png" >}}
+
+{{< figure src="/img/2016/11/graylog_nxfilter_dashboard_gerado.png" >}}
 
