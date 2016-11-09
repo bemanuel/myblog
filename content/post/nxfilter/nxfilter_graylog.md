@@ -152,7 +152,7 @@ No Graylog temos de fazer os seguintes passos:
 3. Criar os Gráficos
 4. Gerar um Stream para criar alertas
 
-### Criando o INPUT
+## Criando o INPUT
 
 O INPUT é a parte base do sistema de gerenciamento de logs, através dele que são coletadas as informações. Será criado um INPUT para a entrada de registros enviados pelo NxFilter e conforme definido anteriormente a porta usada será a 5140.
 
@@ -188,7 +188,7 @@ Neste ponto se estiver tudo correto o item Input recém criado deverá exibir me
 
 Agora é o momento de tratá-las usando o ''Extractor'' que nos auxiliará trabalhando a mensagem. 
 
-### Criando o Extractor
+## Criando o Extractor
 
 A função do 'Extractor' é tratar/manipular o texto recebido e quebrá-lo em 'fields'/campos, de um modo flexível permitindo ser especificado de acordo com o interesse do usuário do sistema.
 
@@ -204,11 +204,24 @@ Deixe marcado o campo 'Named captures only', desse modo só os resultados recebi
 
 Em 'Grok Pattern' insira - exatamente - a seguinte expressão:
 
-     %{HOSTNAME:srv} %{WORD:sys}\|%{TIMESTAMP_ISO8601:date}\|%{WORD:block}\|%{HOSTNAME:domain}\|%{GREEDYDATA:user}\|%{IP:src_ip}\|%{GREEDYDATA:policy}\|%{GREEDYDATA:category}\|%{GREEDYDATA:reason}\|%{INT:dns_type}
+   %{HOSTNAME:srv} %{WORD:sys}\|%{TIMESTAMP_ISO8601:date}\|%{WORD:block}\|%{HOSTNAME:domain}\|%{GREEDYDATA:user}\|%{IP:src_ip}\|%{GREEDYDATA:policy}\|%{GREEDYDATA:category}\|%{GREEDYDATA:reason}\|%{INT:dns_type}
 
 Clique no botão 'Try', se estiver tudo certo aparecerá um item ''Extractor preview'' mostrando a previsão do resultado da análise da mensagem, parecido como abaixo:
 
 
-{{< figure src="/img/2016/11/graylog_nxfilter_extractor_pattern.png" title="Saída do Extractor" >}}
+{{< figure src="/img/2016/11/graylog_nxfilter_extractor_pattern.png" >}}
+
+No campo 'Condition' é definido quando e o Extractor atuará, marque a 3a opção:
+
+[] 'Always try to extract' - Sempre executar o Extractor
+[] 'Only attempt extraction if field contains string' - Somente se encontrar uma determinada ocorrência
+[x] 'Only attempt extraction if field matches regular expression' - Somente se casar com uma determinada expressão regular
+
+E preencha o campo 'Field matches regular expression', com o valor:
+   ^*NXFILTER\|*
+
+Se estiver tudo correto, ao clicar no botão 'Try', que fica a direita do 'Field matches...', deverá receber um resultado como o da imagem abaixo.
+
+{{< figure src="/img/2016/11/graylog_nxfilter_extractor_01.png" >}}
 
 
