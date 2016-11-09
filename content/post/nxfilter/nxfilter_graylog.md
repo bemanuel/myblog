@@ -213,9 +213,9 @@ Clique no botão 'Try', se estiver tudo certo aparecerá um item ''Extractor pre
 
 No campo 'Condition' é definido quando e o Extractor atuará, marque a 3a opção:
 
-[] 'Always try to extract' - Sempre executar o Extractor
-[] 'Only attempt extraction if field contains string' - Somente se encontrar uma determinada ocorrência
-[x] 'Only attempt extraction if field matches regular expression' - Somente se casar com uma determinada expressão regular
+- [ ] 'Always try to extract' - Sempre executar o Extractor
+- [ ] 'Only attempt extraction if field contains string' - Somente se encontrar uma determinada ocorrência
+- [x] 'Only attempt extraction if field matches regular expression' - Somente se casar com uma determinada expressão regular
 
 E preencha o campo 'Field matches regular expression', com o valor:
    ^*NXFILTER\|*
