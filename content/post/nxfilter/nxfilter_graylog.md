@@ -20,7 +20,7 @@ type = "post"
 
 # Relatórios no NxFilter
 
-  O NxFilter tem relatórios gráficos e com apresentação diversificada mas como todos os sistemas hoje existentes nem todos os relatórios apresentados podem atender as mais diversas necessidades. Porém, assim como a maioria dos sistemas, o serviço NxFilter vem com a possibilidade de se usar o Syslog para exportar seus registros em tempo de execução.
+  O NxFilter tem relatórios gráficos e com apresentação diversificada mas, como todos os sistemas hoje existentes, os relatórios disponibilizados nem sempre atendem as mais diversas necessidades. Tendo isso sido previsto, assim como a maioria dos sistemas, o serviço NxFilter vem com a possibilidade de se usar o Syslog para exportar seus registros em tempo de execução.
 
 ## O que é Syslog ?
   
@@ -79,10 +79,10 @@ type = "post"
 #### INPUT ( Graylog )
   Então o INPUT é composto basicamente do tipo a ser trabalhado, que pode ser GELF ( formato proprietário ), JSON ( para entradas de APIs HTTP ), Syslog ( que já comentamos anteriormente ) e outros. Somado ao tipo de Input, ao se definir a criação do mesmo surgirá uma nova janela pedindo informações como, isso para o caso de criar um Input do tipo ''Syslog'':
 
-  1.  O nó que escutará/receberá essas informações ( pois o Graylog pode ser formado por diversos nós )
-  2.  O título que será dado a esse INPUT 
-  3.  O IP ao qual ele será vinculado
-  4.  A porta que escutará o serviço 
+1.  O nó que escutará/receberá essas informações ( pois o Graylog pode ser formado por diversos nós )
+2.  O título que será dado a esse INPUT 
+3.  O IP ao qual ele será vinculado
+4.  A porta que escutará o serviço 
 
   Há outras opções para o mesmo INPUT mas só usaremos estas para esse post.
 
@@ -160,7 +160,7 @@ Acesse o menu em ''System > Inputs'', lá você terá acesso a todos os Inputs r
 
 {{< figure src="/img/2016/11/graylog_nxfilter_system_inputs.png" title="System >  Inputs" >}}
 
-Retornando a listagem de inputs existentes e suas estatísticas. Para criar o seu input acesse o combo com a listagem de tipos de inputi, escolho o modelo ''Syslog UDP'' e clique em ''Launch new input''. 
+Retornando a listagem de inputs existentes e suas estatísticas. Para criar o seu input acesse o combo com a listagem de tipos de input, escolho o modelo ''Syslog UDP'' e clique em ''Launch new input''. 
 
 {{< figure src="/img/2016/11/graylog_nxfilter_criando_input_00.png" title="Combo Input" >}}
 
@@ -190,11 +190,25 @@ Agora é o momento de tratá-las usando o ''Extractor'' que nos auxiliará traba
 
 ### Criando o Extractor
 
-Extractor: Sua função é analisar o texto recebido e quebrá-lo em 'fields' ou campos, especificando de acordo com o interesse do usuário do sistema.
+A função do 'Extractor' é tratar/manipular o texto recebido e quebrá-lo em 'fields'/campos, de um modo flexível permitindo ser especificado de acordo com o interesse do usuário do sistema.
 
-Uma das formas de criá-lo é clicando no botão 'Show messages' que fica no Input desejado, como a imagem mostrada acima. Essa operação fará com que se abra uma tela contendo diversas mensagens recebidas pelo input 'NxFilter'.
+Uma das formas de criá-lo é na área do Input, clicando no botão 'Show messages', como a imagem mostrada acima. Essa operação fará com que se abra uma tela contendo diversas mensagens recebidas pelo input 'NxFilter'.
 
-Clique na mensagem e aparecerá o field ''message'' no canto direito há uma espécie de lupa. Ao clicar nela aparecerão diversas opções, dentre elas ''Create extractor field message'', selecionado essa opção aparecerá um submenu.
+Clique na mensagem e aparecerá o campo ''message'' no canto direito há uma espécie de lupa. Ao clicar nela aparecerão diversas opções, dentre elas ''Create extractor field message'', selecionado essa opção aparecerá um submenu.
 
 No submenu escolha ''Grok pattern', que será o padrão que usaremos para extrair as informações e atribuir aos campos desejados.
+
+IMPORTANTE: Para ativar o pacote de padrões já disponibilizado no Graylog é preciso que acesse ''System > Content Packs'' e ative o pacote ''Core Grok Patterns''.
+
+Deixe marcado o campo 'Named captures only', desse modo só os resultados recebidos na análise do padrão serão exibidos.
+
+Em 'Grok Pattern' insira - exatamente - a seguinte expressão:
+
+     %{HOSTNAME:srv} %{WORD:sys}\|%{TIMESTAMP_ISO8601:date}\|%{WORD:block}\|%{HOSTNAME:domain}\|%{GREEDYDATA:user}\|%{IP:src_ip}\|%{GREEDYDATA:policy}\|%{GREEDYDATA:category}\|%{GREEDYDATA:reason}\|%{INT:dns_type}
+
+Clique no botão 'Try', se estiver tudo certo aparecerá um item ''Extractor preview'' mostrando a previsão do resultado da análise da mensagem, parecido como abaixo:
+
+
+{{< figure src="/img/2016/11/graylog_nxfilter_extractor_pattern.png" title="Saída do Extractor" >}}
+
 
