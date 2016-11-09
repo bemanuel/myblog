@@ -110,6 +110,10 @@ srvl00nxf500.bemanuel.com.br | NXFILTER | 2016-11-01 08:45:37
 
  Por conta dessa facilidade usarei o Grok. No Graylog ele já vem com diversos padrões especificados, além claro dos usados aqui no exemplo ( HOSTNAME, WORD e TIMESTAMP_ISO8601 )
 
+ Os padrões Grok, são uma prédefinição de expressõesque auxiliam no tratamento da mensagem.
+
+IMPORTANTE: Para ativar o pacote de padrões já disponibilizado no Graylog é preciso que acesse ''System > Content Packs'' e ative o pacote ''Core Grok Patterns''.
+
 ## Graylog e NxFilter - configurando 
  
   Vamos usar os seguintes parâmetros:
@@ -179,5 +183,19 @@ Após a criação do Input deverá aparecer o item contendo:
 
 {{< figure src="/img/2016/11/graylog_nxfilter_input_criado.png" title="Resultado da criação do Input" >}}
 
+Neste ponto se estiver tudo correto o item Input recém criado deverá exibir mensagens como a abaixo ao se clicar em ''Show received messages''.
+
 {{< figure src="/img/2016/11/graylog_nxfilter_msgs.png" title="Mensagens capturadas" >}}
+
+Agora é o momento de tratá-las usando o ''Extractor'' que nos auxiliará trabalhando a mensagem. 
+
+### Criando o Extractor
+
+Extractor: Sua função é analisar o texto recebido e quebrá-lo em 'fields' ou campos, especificando de acordo com o interesse do usuário do sistema.
+
+Uma das formas de criá-lo é clicando no botão 'Show messages' que fica no Input desejado, como a imagem mostrada acima. Essa operação fará com que se abra uma tela contendo diversas mensagens recebidas pelo input 'NxFilter'.
+
+Clique na mensagem e aparecerá o field ''message'' no canto direito há uma espécie de lupa. Ao clicar nela aparecerão diversas opções, dentre elas ''Create extractor field message'', selecionado essa opção aparecerá um submenu.
+
+No submenu escolha ''Grok pattern', que será o padrão que usaremos para extrair as informações e atribuir aos campos desejados.
 
