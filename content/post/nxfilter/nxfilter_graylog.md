@@ -130,12 +130,13 @@ Lembrando que estou considerando que já instalou o Graylog.
 
 No NxFilter não há a opção de se mudar a porta 514 e no Graylog ( a não ser que você esteja fazendo errado ) não se consegue levantar portas inferiores a 1024 sem que o serviço seja levantado pelo usuário ''root''.
 
+`Se já usa a versão 3.4.6 ou superior os passos abaixo já não são mais necessários pois o NxFilter a partir da 3.4.6 permite definir a porta a ser usada`
+
 Para que isso funcione faremos o redirecionamento de solicitações da porta 514 para a porta 5140 - que será a utilizada neste post, conforme especificado acima.
 
     sudo iptables -A PREROUTING -t nat -i ens18 -p udp --dport 514 -j REDIRECT --to-port 5140 
 
 `Esse comando deve ser executado no servidor Graylog com o usuário root`
-
 
 No servidor NxFilter tudo que é necessário ser feito é ir em `Config > Setup` e definir o ip do servidor Graylog.
 
@@ -150,7 +151,6 @@ No Graylog temos de fazer os seguintes passos:
 1. Criar o INPUT
 2. Aplicar um Extractor na mensagem recebida
 3. Criar os Gráficos
-4. Gerar um Stream para criar alertas
 
 ## Criando o INPUT
 
@@ -274,9 +274,9 @@ Escolha o que interessar - isso pode ser modificado depois - e clique em ''Creat
 
 Aparecerá o Dashboard já com o Widget. Seguem exemplos de Dashboards.
 
-{{< figure src="/img/2016/11/graylog_nxfilter_criando_dashboard.png" >}}
-
 {{< figure src="/img/2016/11/graylog_nxfilter_dashboard_completo.png" >}}
 
 {{< figure src="/img/2016/11/graylog_nxfilter_dashboard_gerado.png" >}}
 
+
+ Agora é trabalhar esses dados da melhor forma possível e que atenda as suas necessidades.
