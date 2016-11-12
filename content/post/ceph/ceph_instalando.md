@@ -19,7 +19,19 @@ type = "post"
 
 ## Cluster CEPH - Quick start
 
- O Cluster CEPH precisa de no mínimo 3 nós, por isso o ambiente de instalação seguirá essa premissa. O ambiente em que fiz o procedimento de instalação foi o Debian, porém o que muda para o RedHat é apenas a parte de instalação de pacotes, os comandos são iguais.
+ O CEPH já foi comentado no post [CEPH - O que é ?](http://blog.bemanuel.com.br/post/ceph/inicio/)
+
+ O Cluster CEPH precisa de no mínimo 3 nós, por isso o ambiente de instalação seguirá essa premissa. O ambiente em que fiz o procedimento de instalação foi o Debian/Ubuntu, porém o que muda para o RedHat é apenas a parte de instalação de pacotes, os comandos são iguais.
+
+ O Ambiente que instalaremos terá a especificação:
+
+Nó | IP | IP Rede CEPH
+----- | :--------: | :-------:
+node1 | 172.16.0.2 | 192.168.0.2
+node2 | 172.16.0.3 | 192.168.0.3
+node3 | 172.16.0.4 | 192.168.0.4
+node4 | 172.16.0.5 | 192.168.0.5
+node5 | 172.16.0.6 | 192.168.0.6
 
 
 ## Pré-requisito
@@ -43,5 +55,5 @@ Recurso | Descrição
  Para instalar o serviço NTP, execute:
 
  ```bash
-    apt-get install ntp openssh-server 
+    apt-get -y install ntp openssh-server 
  ```
