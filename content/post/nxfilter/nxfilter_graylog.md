@@ -241,12 +241,12 @@ Estando o serviço do NxFilter configurado para enviar as mensagens para o Grayl
 
  Com isso podemos criar agora o Dashboard com informações sobre o uso de DNS na nossa rede. 
 
- No cantos esquerdos do campo há uma seta, clicando nela aparece um quadro com opções.
+ No canto esquerdo dos campos há uma seta, clicando nela aparece um quadro com opções.
 
-. Generate Chart - Gera um gráfico, só funciona para campos númericos
-. Quick values - Gera um gráfico pizza, contendo estatísticas simples como quantidade/percentual de um determinado registro
-. Statistics - Estatísticas mostrando quantidades máximas, mínimas, desvio padrão, etc...
-. World Map - Se o campo for IP e estiver ativado o recurso de GeoIP ele apresenta um mapa indicando a origem dos mesmos, desde que sejam IPs válidos. 
+ . Generate Chart - Gera um gráfico, só funciona para campos númericos
+ . Quick values - Gera um gráfico pizza, contendo estatísticas simples como quantidade/percentual de um determinado registro
+ . Statistics - Estatísticas mostrando quantidades máximas, mínimas, desvio padrão, etc...
+ . World Map - Se o campo for IP e estiver ativado o recurso de GeoIP ele apresenta um mapa indicando a origem dos mesmos, desde que sejam IPs válidos. 
 
 
 {{< figure src="/img/2016/11/graylog_nxfilter_search_graphs_00.png" >}}
