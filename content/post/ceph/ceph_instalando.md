@@ -35,9 +35,9 @@ cph_05 | 172.16.0.6 | 192.168.50.6
 
  O Hardware mínimo para cada máquina
 
-. Memória = 1GB
-. 2 HDs. 1 com 8GB ( para o SO ) + 4 HDs com 16GB ( para o CEPH )
-. 2 Placas de Rede 1 GB - Para Rede 172.16.0.0/24
+ . Memória = 1GB
+ . 2 HDs. 1 com 8GB ( para o SO ) + 4 HDs com 16GB ( para o CEPH )
+ . 2 Placas de Rede 1 GB - Para Rede 172.16.0.0/24
 
 ## Pré-requisito
 
@@ -58,7 +58,7 @@ Recurso | Descrição
  Para instalar o serviço NTP, execute:
 
  ```bash
-    apt-get update && apt-get -y install ntp openssh-server 
+    apt-get update && apt-get -y install ntp openssh-server sudo 
     dpkg-reconfigure tzdata
  ```
    Na configuração do Timezone defina o seu local
@@ -88,3 +88,54 @@ Recurso | Descrição
     192.168.50.5 cph_04
     192.168.50.6 cph_05
  ```
+
+3. Criando usuário CEPH e gerando chave SSH sem senha
+
+    Será criado um usuário para fazer o deploy do CEPH. Aqui definirei a senha do mesmo como 'ceph1234'
+
+  ```bash
+    adduser uceph
+    echo "uceph ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/uceph
+  ```
+4. Gerando chave RSA para uso no SSH e permitir a comunicação entre os servidores sem senha
+ 
+    Considerando que está no servidor cph_01, ao executar o procedimento não defina nenhuma senha.
+
+  ```bash
+    sudo su - uceph
+    ssh-keygen
+    ssh-copyid uceph@cph_01
+    ssh-copyid uceph@cph_02
+    ssh-copyid uceph@cph_03
+  ``` 
+
+   Vamos fazer o processo em apenas 3 nós, ao menos nesse instante.
+
+## Instalando o CEPH 
+
+
+1. Instalando o CEPH-DEPLOY
+
+   Ferramenta para auxilio na criação do cluster Ceph, facilita todo o processo.
+
+  ```bash
+    sudo su -
+    apt-get install ceph-deploy
+    mkdir /etc/ceph && cd /etc/ceph
+    ceph-deploy --username uceph new cph_01
+  ```
+   
+    Esse processo irá criar os arquivos de configuração e as chaves. Listando o contéudo 'ls /etc/ceph', verá que existens arquivos na pasta.
+
+
+2. Instalando o CEPH e configurando todos os nós com apenas 1 comando
+
+   Tendo o ceph-deploy instalado e sua configuração inicial só é necessário 1 comando para levantar o cluster, esse é um processo que levará tempo pois fará o download de pacotes.
+
+   ```bash
+    sudo su - uceph
+    ceph-deploy install --release hammer cph_01 cph_02 cph_03
+   ```
+   
+   Esse processo fará com que o servidor se conecte a cada nó ( e para isso que configuramos o `/etc/hosts` ) e execute o processo de instalação.
+
