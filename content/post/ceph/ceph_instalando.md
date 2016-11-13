@@ -124,6 +124,13 @@ Recurso | Descrição
     mkdir /etc/ceph && cd /etc/ceph
     ceph-deploy --username uceph new cph_01
   ```
+
+    Em cada nó instale o ceph-deploy, apenas para garantir os pacotes pré-instalados
+
+  ```bash
+    sudo su -
+    apt-get install ceph-deploy
+  ```  
    
     Esse processo irá criar os arquivos de configuração e as chaves. Listando o contéudo 'ls /etc/ceph', verá que existens arquivos na pasta.
 
