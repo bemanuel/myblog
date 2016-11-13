@@ -33,6 +33,11 @@ node3 | 172.16.0.4 | 192.168.0.4
 node4 | 172.16.0.5 | 192.168.0.5
 node5 | 172.16.0.6 | 192.168.0.6
 
+ O Hardware de cada máquinas
+
+#. Memória = 1GB
+#. 1o. HD com 8GB ( para o SO )
+#. 2o. HD com 32GB ( para o CEPH )
 
 ## Pré-requisito
 
@@ -55,5 +60,6 @@ Recurso | Descrição
  Para instalar o serviço NTP, execute:
 
  ```bash
-    apt-get -y install ntp openssh-server 
+    apt-get update && apt-get -y install ntp openssh-server 
+    dpkg-reconfigure tzdata
  ```
