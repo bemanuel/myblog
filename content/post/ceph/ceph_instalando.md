@@ -143,6 +143,16 @@ Recurso | Descrição
     sudo su - uceph
     ceph-deploy install --release hammer cph_01 cph_02 cph_03
    ```
-   
    Esse processo fará com que o servidor se conecte a cada nó ( e para isso que configuramos o `/etc/hosts` ) e execute o processo de instalação.
 
+   Ao concluir o processo com sucesso aparecerá uma tela com a abaixo.
+
+## Criando o monitor
+
+   Para confirmar que o serviço foi instalado com sucesso execute 'ceph -v'. Deverá retornar a versão do CEPH.
+
+   Agora vamos criar o `monitor`. A função do monitor é ....
+
+   ```bash
+   ceph-deploy mon create-initial
+   ```
