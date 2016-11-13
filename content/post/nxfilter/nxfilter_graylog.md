@@ -9,8 +9,8 @@ Categories = [
 ]
 description = "Integrando o NxFilter com o Graylog através do Syslog"
 tags = ["nxfilter", "dns","filtro","instalando","docker", "graylog","syslog" ]
-date = "2016-10-30"
-publishdate = "2016-10-31"
+date = "2016-11-11"
+publishdate = "2016-11-12"
 menu = "main"
 title = "NxFilter + Graylog = Relatórios"
 featuredalt = ""
