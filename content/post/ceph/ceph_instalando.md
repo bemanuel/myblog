@@ -156,8 +156,10 @@ Recurso | Descrição
 
    Agora vamos criar o `monitor`. A função do monitor é ....
 
+  Essa parte é muito importante pois o cluster CEPH exige um mínimo de 3 monitores para levantar o cluster, levando em conta que todas as partes de firewall ( como liberação da porta 6789 ) já foram feitas, vamos aos passos.
+
    ```bash
-   ceph-deploy --username=uceph mon create-initial
+   ceph-deploy mon create-initial
    ```
    
    Todo o processo do monitor tendo sido feito com sucesso ao executar o comando `ceph status` deverá ter algo como a imagem abaixo, apesar do erro aparente tem de se levar em conta que ainda não foram criados  os ''OSD''!???? 
@@ -180,35 +182,20 @@ Recurso | Descrição
    Iremos executar o comando para preparar os discos `sdb`, `sdc`, `sdd` e `sde`, que visualizamos com o comando ``ceph-deploy disk list``, então deverá executar o comando de criação do OSD, por padrão ele gera partições XFS. 
 
   ```bash
-   ceph-deploy --username uceph disk zap node01:sdb node01:sdc node01:sdd node01:sde
-   ceph-deploy --username uceph osd create node01:sdb node01:sdc node01:sdd node01:sde
+   su -
+   cd /etc/ceph
+   ceph-deploy --username uceph disk zap node01:sdb node01:sdc node01:sdd node01:sde node02:sdb node02:sdc node02:sdd node02:sde node03:sdb node03:sdc node03:sdd node03:sde
+   ceph-deploy --username uceph osd create node01:sdb node01:sdc node01:sdd node01:sde node02:sdb node02:sdc node02:sdd node02:sde node03:sdb node03:sdc node03:sdd node03:sde
   ```
 
   No comando `ceph-deploy --username uceph osd create` não foi especificada a área de journal, então ele criará duas partições em cada disco, uma para os dados e outra para o journal.
    
   Executando novamente o comando `ceph status` o CEPH ainda não estará 'saudável' porém já devem aparecer os 4 OSDs.
  
-## Adicionando novos monitores ao cluster
+## Publicando chave admin
+    
+  Vamos publicar a keyring do admin nos demais nós:
 
-  Essa parte é muito importante pois o cluster CEPH exige um mínimo de 3 monitores para levantar o cluster, levando em conta que todas as partes de firewall ( como liberação da porta 6789 ) já foram feitas, vamos aos passos.
-
-  Esse processo pode ser feito a partir do `node01`, já que foi feita toda a parte de intregração com os outros nós ( ssh, keygen, etc... ). Mas antes vamos garantir que realmente está ok.
-
-  ```bash
-  sudo su - uceph
-  ssh uceph@node02 -C true
-  ssh uceph@node03 -C true
-  ```
-  
-  Deverá receber retornos como na imagem abaixo.
-
-  --figura
-
-
-
-  ```bash
-  su - uceph
-  ceph-deploy --username mon create node02
-  ceph-deploy --username mon create node03
-
-  ```
+ ```bash
+ ceph-deploy --username=uceph admin node01 node02 node03
+ ```
