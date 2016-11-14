@@ -27,11 +27,11 @@ type = "post"
 
 Nó | IP | IP Rede CEPH
 ----- | :--------: | :-------:
-cph_01 | 172.16.0.2 | 192.168.50.2
-cph_02 | 172.16.0.3 | 192.168.50.3
-cph_03 | 172.16.0.4 | 192.168.50.4
-cph_04 | 172.16.0.5 | 192.168.50.5
-cph_05 | 172.16.0.6 | 192.168.50.6
+cph-01 | 172.16.0.2 | 192.168.50.2
+cph-02 | 172.16.0.3 | 192.168.50.3
+cph-03 | 172.16.0.4 | 192.168.50.4
+cph-04 | 172.16.0.5 | 192.168.50.5
+cph-05 | 172.16.0.6 | 192.168.50.6
 
  O Hardware mínimo para cada máquina
 
@@ -55,17 +55,21 @@ Recurso | Descrição
   
  O Serviço NTP é responsável por manter o horário dos servidores sincronizados. Como estamos falando de um cluster que mantém dados replicados e sincronizados isso é muito importante. 
 
- Para instalar o serviço NTP, execute:
+ Para instalar o serviço NTP,SSH e algun requisitos, execute:
 
  ```bash
-    apt-get update && apt-get -y install ntp openssh-server sudo 
+    apt-get update && apt-get -y install ntp openssh-server sudo python-setuptools vim apt-transport-https libgoogle-perftools4
     dpkg-reconfigure tzdata
  ```
    Na configuração do Timezone defina o seu local
 
+- Caso não consiga instalar o pacote 'apt-transport-https' adicione o CD-ROM do Debian ao apt pois nele contém.
+
+- Se o pacote `libgoogle-perftools4` não for encontrado adicione o repositório ao sources.list do Debian: `deb http://ftp.br.debian.org/debian jessie main`
+
 2. Definindo configurações de rede
 
- Em `/etc/network/interfaces` são definidos os ips de cada máquina de acordo com a tabela especificada. Por exemplo, no servidor 01 ( cph_node01 ) ficará assim:
+ Em `/etc/network/interfaces` são definidos os ips de cada máquina de acordo com a tabela especificada. Por exemplo, no servidor 01 ( node01 ) ficará assim:
 
  ```bash /etc/network/interfaces
     auto enp0s3 
@@ -82,34 +86,36 @@ Recurso | Descrição
   Em /etc/hosts de cada servidor relacione os nomes e ips de cada servidor, deixe cadastrado assim:
 
  ```bash /etc/hosts
-    192.168.50.2 cph_01
-    192.168.50.3 cph_02
-    192.168.50.4 cph_03
-    192.168.50.5 cph_04
-    192.168.50.6 cph_05
+    192.168.50.2 node01
+    192.168.50.3 node02
+    192.168.50.4 node03
+    192.168.50.5 node04
+    192.168.50.6 node05
  ```
 
 3. Criando usuário CEPH e gerando chave SSH sem senha
 
-    Será criado um usuário para fazer o deploy do CEPH. Aqui definirei a senha do mesmo como 'ceph1234'
+    Será criado um usuário para fazer o deploy do CEPH. Neste mesmo momento é definida a senha do mesmo como 'ceph1234'
+
+    Deve ser feito em todos os nós.
 
   ```bash
     adduser uceph
-    echo "uceph ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/uceph
+    echo "uceph ALL = (ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/uceph
   ```
 4. Gerando chave RSA para uso no SSH e permitir a comunicação entre os servidores sem senha
  
-    Considerando que está no servidor cph_01, ao executar o procedimento não defina nenhuma senha.
+    Considerando que está no servidor node01, ao executar o procedimento não defina nenhuma senha.
 
   ```bash
     sudo su - uceph
-    ssh-keygen
-    ssh-copyid uceph@cph_01
-    ssh-copyid uceph@cph_02
-    ssh-copyid uceph@cph_03
+    ssh-keygen -t rsa
+    ssh-copy-id node01
+    ssh-copy-id node02
+    ssh-copy-id node03
   ``` 
 
-   Vamos fazer o processo em apenas 3 nós, ao menos nesse instante.
+   Vamos fazer o processo para apenas 3 nós, ao menos nesse instante.
 
 ## Instalando o CEPH 
 
@@ -120,19 +126,16 @@ Recurso | Descrição
 
   ```bash
     sudo su -
+    wget -q -O- 'https://download.ceph.com/keys/release.asc' | apt-key add -
+    echo deb http://download.ceph.com/debian-jewel/ $(lsb_release -sc) main | tee /etc/apt/sources.list.d/ceph.list
+    apt-get update
     apt-get install ceph-deploy
-    mkdir /etc/ceph && cd /etc/ceph
-    ceph-deploy --username uceph new cph_01
+    mkdir /etc/ceph && cd /etc/ceph && chown -R uceph. /etc/ceph 
+    su - uceph
+    cd /etc/ceph
+    ceph-deploy new --cluster-network 192.168.50.0/24 node01 node02 node03
   ```
-
-    Em cada nó instale o ceph-deploy, apenas para garantir os pacotes pré-instalados
-
-  ```bash
-    sudo su -
-    apt-get install ceph-deploy
-  ```  
-   
-    Esse processo irá criar os arquivos de configuração e as chaves. Listando o contéudo 'ls /etc/ceph', verá que existens arquivos na pasta.
+    Esse processo irá criar os arquivos de configuração e as chaves. Listando o contéudo 'ls /etc/ceph', verá que existem arquivos na pasta.
 
 
 2. Instalando o CEPH e configurando todos os nós com apenas 1 comando
@@ -141,7 +144,7 @@ Recurso | Descrição
 
    ```bash
     sudo su - uceph
-    ceph-deploy install --release hammer cph_01 cph_02 cph_03
+    ceph-deploy --username uceph install --release jewel node01 node02 node03
    ```
    Esse processo fará com que o servidor se conecte a cada nó ( e para isso que configuramos o `/etc/hosts` ) e execute o processo de instalação.
 
@@ -154,5 +157,58 @@ Recurso | Descrição
    Agora vamos criar o `monitor`. A função do monitor é ....
 
    ```bash
-   ceph-deploy mon create-initial
+   ceph-deploy --username=uceph mon create-initial
    ```
+   
+   Todo o processo do monitor tendo sido feito com sucesso ao executar o comando `ceph status` deverá ter algo como a imagem abaixo, apesar do erro aparente tem de se levar em conta que ainda não foram criados  os ''OSD''!???? 
+
+   -- figura
+
+   Agora para listar os discos existentes no nó, usamos o comando `ceph-deploy disk list node01`.
+
+   Reparando na figura acima vemos que temos os discos `sdb`, `sdc`, `sdd`, `sde` disponíveis.
+
+   Agora para confirmar vamos listar os discos existentes na máquina, ele listará tanto partições quanto discos disponíveis para criação do OSD.
+
+
+## Anexando Discos ao Cluster CEPH - OSD
+
+   OSD é ....
+
+   O comando 'ceph-deploy disk' serve para gerenciar os discos. O atributo 'zap' destroy possíveis partiçoes e conteúdo do disco selecionado. Para evitar perda de dados tenha certeza de estar indicando o disco certo.
+
+   Iremos executar o comando para preparar os discos `sdb`, `sdc`, `sdd` e `sde`, que visualizamos com o comando ``ceph-deploy disk list``, então deverá executar o comando de criação do OSD, por padrão ele gera partições XFS. 
+
+  ```bash
+   ceph-deploy --username uceph disk zap node01:sdb node01:sdc node01:sdd node01:sde
+   ceph-deploy --username uceph osd create node01:sdb node01:sdc node01:sdd node01:sde
+  ```
+
+  No comando `ceph-deploy --username uceph osd create` não foi especificada a área de journal, então ele criará duas partições em cada disco, uma para os dados e outra para o journal.
+   
+  Executando novamente o comando `ceph status` o CEPH ainda não estará 'saudável' porém já devem aparecer os 4 OSDs.
+ 
+## Adicionando novos monitores ao cluster
+
+  Essa parte é muito importante pois o cluster CEPH exige um mínimo de 3 monitores para levantar o cluster, levando em conta que todas as partes de firewall ( como liberação da porta 6789 ) já foram feitas, vamos aos passos.
+
+  Esse processo pode ser feito a partir do `node01`, já que foi feita toda a parte de intregração com os outros nós ( ssh, keygen, etc... ). Mas antes vamos garantir que realmente está ok.
+
+  ```bash
+  sudo su - uceph
+  ssh uceph@node02 -C true
+  ssh uceph@node03 -C true
+  ```
+  
+  Deverá receber retornos como na imagem abaixo.
+
+  --figura
+
+
+
+  ```bash
+  su - uceph
+  ceph-deploy --username mon create node02
+  ceph-deploy --username mon create node03
+
+  ```
