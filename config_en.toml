@@ -1,4 +1,4 @@
-baseurl = "http://blog.bemanuel.com.br/"
+baseurl = "http://blog.bemanuel.com.br/en"
 languageCode = "en-US"
 title = "Technology"
 theme = "hugo-future-imperfect"
