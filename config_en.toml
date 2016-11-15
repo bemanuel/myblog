@@ -1,18 +1,18 @@
 baseurl = "http://blog.bemanuel.com.br/"
-languageCode = "pt-br"
-title = "Tecnologia"
+languageCode = "en-US"
+title = "Technology"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 5 
 disqusShortname = "blogbemanuel"
 googleAnalytics = "UA-13290182-7"
-publishdir = "public/pt-br"
-contentdir = "content/pt-br"
+contentdir = "content/en"
+publishdir = "public/en"
 
 [params]
-    locale = "pt-BR"
+    locale = "en-US"
     # Sets the meta tag description, usually reserved for the main page
-    description = "Blog sobre uso de tecnologias"
+    description = "About Technology"
     # This will appear on the top left of the navigation bar
     navbarTitle          = "TI"
     # Social media buttons that appear on the sidebar
