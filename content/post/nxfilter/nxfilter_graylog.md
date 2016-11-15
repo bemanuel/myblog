@@ -204,7 +204,7 @@ Deixe marcado o campo 'Named captures only', desse modo só os resultados recebi
 
 Em 'Grok Pattern' insira - exatamente - a seguinte expressão:
 
-   %{HOSTNAME:srv} %{WORD:sys}\|%{TIMESTAMP_ISO8601:date}\|%{WORD:block}\|%{HOSTNAME:domain}\|%{GREEDYDATA:user}\|%{IP:src_ip}\|%{GREEDYDATA:policy}\|%{GREEDYDATA:category}\|%{GREEDYDATA:reason}\|%{INT:dns_type}
+       %{HOSTNAME:srv} %{WORD:sys}\|%{TIMESTAMP_ISO8601:date}\|%{WORD:block}\|%{HOSTNAME:domain}\|%{GREEDYDATA:user}\|%{IP:src_ip}\|%{GREEDYDATA:policy}\|%{GREEDYDATA:category}\|%{GREEDYDATA:reason}\|%{INT:dns_type}
 
 Clique no botão 'Try', se estiver tudo certo aparecerá um item ''Extractor preview'' mostrando a previsão do resultado da análise da mensagem, parecido como abaixo:
 
