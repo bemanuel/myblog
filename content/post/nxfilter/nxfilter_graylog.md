@@ -162,9 +162,9 @@ Acesse o menu em ''System > Inputs'', lá você terá acesso a todos os Inputs r
 
 Retornando a listagem de inputs existentes e suas estatísticas. Para criar o seu input acesse o combo com a listagem de tipos de input, escolho o modelo ''Syslog UDP'' e clique em ''Launch new input''. 
 
-{{< figure src="/img/2016/11/graylog_nxfilter_criando_input_00.png" title="Combo Input" >}}
+{{< img-post path="date" file="graylog_nxfilter_criando_input_00.png" alt="Combo Input" type="center" >}}
 
-{{< figure src="/img/2016/11/graylog_nxfilter_criando_input.png" title="Criando INPUT" >}}
+{{< img-post path="date" file="graylog_nxfilter_criando_input.png" alt="Criando Input" type="center" >}}
 
 Em seguida aparecerá uma janela solicitando a definição de parâmetros para esse INPUT. Defina o título/nome do input como ''NxFilter'' e em `Node` você deve escolher que servidor do Graylog receberá os registros do syslog para isso basta clicar na seta do combo e aparecerá a listagem dos `nodes` registrados, deixe `Bind address` com o valor padrão '0.0.0.0' e em port - que é a porta que o serviço deverá abrir para reveber os registros - sete o valor 5140.
 
@@ -208,8 +208,7 @@ Em 'Grok Pattern' insira - exatamente - a seguinte expressão:
 
 Clique no botão 'Try', se estiver tudo certo aparecerá um item ''Extractor preview'' mostrando a previsão do resultado da análise da mensagem, parecido como abaixo:
 
-
-{{< figure src="/img/2016/11/graylog_nxfilter_extractor_pattern.png" >}}
+{{< img-post path="date" file="graylog_nxfilter_extractor_pattern.png" type="center" >}}
 
 No campo 'Condition' é definido quando e o Extractor atuará, marque a 3a opção:
 
