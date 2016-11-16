@@ -8,8 +8,8 @@ Categories = [
 ]
 description = "Alta disponibilidade e Load Balance com NxFilter"
 tags = ["nxfilter", "dns","filtro","avançado","ha", "cluster", "lb", "loadbalance"]
-date = "2016-09-30"
-publishdate = "2016-09-30"
+date = "2016-09-12"
+publishdate = "2016-09-12"
 menu = "main"
 title = "NXFilter - Alta Disponibilidade + Load Balance"
 featured = "nxfilter01.png"
