@@ -2,13 +2,14 @@ DefaultContentLanguage = "pt-br"
 
 [languages.pt-br]
     baseurl = "http://blog.bemanuel.com.br/"
-
     title = "Tecnologia"
     theme = "hugo-future-imperfect"
+    languageName = "Portugues"
 
 [languages.en]
     title = "Technology"
     theme = "hugo-future-imperfect"
+    languageName = "English"
 
 preserveTaxonomyNames = true
 paginate = 5 
