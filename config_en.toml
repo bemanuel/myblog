@@ -43,7 +43,7 @@ publishdir = "public/en"
 
     paragraph = ""
 
-    about     = "Mais um curioso na área de TI."
+    about     = "Yet another IT curious"
 
 # This will also appear on the sidebar.
 # A width of less than 100px is recommended
